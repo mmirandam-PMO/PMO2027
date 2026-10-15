@@ -35,14 +35,14 @@
       color: #1B355D;
     }
 
-    /* Estructura Maestra del Gantt en 6 Columnas (Clasificación + Proyecto + Responsable + 3 Trimestres) */
+    /* Estructura Maestra del Gantt en 6 Columnas (Clasificación + Proyecto + Responsable + 4 Trimestres) */
     .gantt-grid-layout {
       display: grid;
       grid-template-columns: 1.5fr 2fr 1fr repeat(4, 1fr);
       align-items: center;
     }
 
-    /* Cabecera del Roadmap flotante y moderna */
+    /* Cabecera del Roadmap Fija (Sticky) */
     .roadmap-gantt-header {
       background: var(--navy);
       color: var(--white);
@@ -54,6 +54,9 @@
       border-radius: 10px;
       margin-bottom: 16px;
       box-shadow: var(--shadow);
+      position: sticky;
+      top: 90px; /* Se posiciona debajo de la cabecera masthead */
+      z-index: 40;
     }
     .roadmap-gantt-header div {
       padding: 14px;
@@ -108,7 +111,7 @@
       color: #4A5568;
     }
 
-    /* Contenedor e indicadores del Timeline */
+    /* Contenedor del Timeline unificado */
     .gantt-timeline-track {
       grid-column: span 4;
       display: grid;
@@ -116,7 +119,7 @@
       height: 100%;
       position: relative;
       align-items: center;
-      background: #FAFBFC;
+      background: #ffffff; /* Fondo blanco homogéneo */
       border-left: 1px solid var(--border);
       border-radius: 0 12px 12px 0;
     }
@@ -128,14 +131,14 @@
       border-right: none;
     }
 
-    /* Barras de progreso estilizadas con cápsulas redondeadas y gradiente sutil */
+    /* Barras de progreso con el color institucional #B1CDEE solicitado */
     .gantt-bar-pill {
       position: absolute;
-      height: 10px;
-      background: linear-gradient(90deg, #3B82F6 0%, #60A5FA 100%);
+      height: 12px;
+      background-color: #B1CDEE;
       border-radius: 20px;
       z-index: 10;
-      box-shadow: 0 2px 4px rgba(59, 130, 246, 0.25);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 1px 3px rgba(0, 0, 0, 0.06);
     }
   </style>
 </head>
@@ -159,7 +162,7 @@
   </header>
 
   <main class="wrap">
-    <!-- Fila del Encabezado Principal del Timeline -->
+    <!-- Encabezado Fijo del Timeline con Qs -->
     <div class="gantt-grid-layout roadmap-gantt-header">
       <div class="text-left">Clasificación</div>
       <div class="text-left">Proyecto</div>
@@ -177,7 +180,7 @@
   <!-- Enlace a tu archivo de datos existente -->
   <script src="roadmap-data.js"></script>
   <script>
-    // Calcula la posición porcentual exacta dentro de los 365 días del año 2027
+    // Parsea las fechas calculando la posición dentro del año de operaciones 2027
     function getYearPercentage(dateString) {
       const parts = dateString.trim().split('-');
       if (parts.length !== 3) return 0;
@@ -190,7 +193,7 @@
       return Math.min(Math.max(percentage, 0), 100);
     }
 
-    // Renderizador del tablero dinámico en formato de tarjetas ejecutivas
+    // Renderizador de filas ejecutivas
     function renderGantt() {
       const container = document.getElementById('gantt-content');
       if (!container) return;
@@ -205,7 +208,7 @@
         const inicio = row.inicio || "";
         const fin = row.fin || "";
 
-        // Omitir de forma estricta las filas sin fechas válidas
+        // Omitir renglones vacíos sin fechas asignadas
         if (!inicio || !fin) return;
 
         if (proy.toLowerCase().includes(term) || resp.toLowerCase().includes(term) || clasi.toLowerCase().includes(term)) {
