@@ -1,4 +1,3 @@
-// data.js - Datos reales del Portafolio 2027
 const pmoData = {
   programas: [
     {
@@ -6,7 +5,7 @@ const pmoData = {
       total_proyectos: 8,
       categorias: [
         {
-          tipo: "Nuevos proyectos",
+          tipo: "Nuevos proyectos • 8",
           proyectos: [
             { nombre: "App de Inversiones MVP 2", responsable: "S. Olivero" },
             { nombre: "Rediseño Proceso de Originación MVP 2", responsable: "S. Olivero" },
@@ -25,7 +24,7 @@ const pmoData = {
       total_proyectos: 7,
       categorias: [
         {
-          tipo: "Carryover 2026",
+          tipo: "Carryover 2026 • 4",
           proyectos: [
             { nombre: "PCI DSS", responsable: "C. Carreón" },
             { nombre: "2o Factor Autentic. trx TDD no presenc.", responsable: "C. Carreón" },
@@ -34,11 +33,11 @@ const pmoData = {
           ]
         },
         {
-          tipo: "Nuevos proyectos",
+          tipo: "Nuevos proyectos • 3",
           proyectos: [
             { nombre: "Nueva Plataforma PLD", responsable: "C. Carreón" },
             { nombre: "Plataforma Reportes Regulatorios", responsable: "C. Budar" },
-            { nombre: "Herramientas Ciberseguridad", responsable: "C. Carreón" }
+            { filename: "image", nombre: "Herramientas Ciberseguridad", responsable: "C. Carreón" }
           ]
         }
       ]
@@ -51,7 +50,7 @@ const pmoData = {
           nombre: "Banca de Empresas · Programa", 
           responsables: ["R. Galindo", "B. Flores"], 
           proyectos: [
-            { nombre: "Plataforma Banca Empresarial Fase 1 (PyME, Empresa Mediana y Gpos Corporativos)", responsable: "R. Galindo / B. Flores" }, 
+            { nombre: "Plataforma Banca Empresarial Fase 1 (PyME, Empresa Mediana y Gpos Corp)", responsable: "R. Galindo / B. Flores" }, 
             { nombre: "• Proyectos Crédito", responsable: "TBD" },
             { nombre: "• Proyectos Captación", responsable: "TBD" },
             { nombre: "• Proyectos Servicios", responsable: "TBD" }
@@ -68,7 +67,7 @@ const pmoData = {
           ] 
         },
         { 
-          nombre: "Transversales", 
+          nombre: "Transversales • 4", 
           proyectos: [
             { nombre: "Banca Electrónica y Móvil", responsable: "--" }, 
             { nombre: "Hub de pagos", responsable: "--" }, 
@@ -83,7 +82,7 @@ const pmoData = {
       total_proyectos: 5,
       categorias: [
         {
-          tipo: "Por autorizar",
+          tipo: "Por autorizar • 5",
           proyectos: [
             { nombre: "Comunidad Lazos", responsable: "R. Flores" },
             { nombre: "MVNO", responsable: "--" },
@@ -98,7 +97,7 @@ const pmoData = {
       total_proyectos: 13,
       categorias: [
         {
-          tipo: "Enfoque al Cliente",
+          tipo: "Enfoque al Cliente • 3",
           proyectos: [
             { nombre: "Programa Lazos", responsable: "A. Nava" },
             { nombre: "Reingeniería IVR", responsable: "A. Nava" },
@@ -106,7 +105,7 @@ const pmoData = {
           ]
         },
         {
-          tipo: "Operaciones",
+          tipo: "Operaciones • 4",
           proyectos: [
             { nombre: "Automatización proceso trxs POS", responsable: "A. Nava" },
             { nombre: "Implementación de TEF", responsable: "A. Nava" },
@@ -115,7 +114,7 @@ const pmoData = {
           ]
         },
         {
-          tipo: "Modernización Tecnológica",
+          tipo: "Modernización Tecnológica • 6",
           proyectos: [
             { nombre: "CRM Objetivo", responsable: "M. Matus" },
             { nombre: "Content Manager Objetivo (Filenet)", responsable: "M. Matus" },
