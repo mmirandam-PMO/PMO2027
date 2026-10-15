@@ -4,7 +4,7 @@ const highlight = {
   'Plataforma Banca Empresarial': RED, 'Banca Electrónica y Móvil': RED, 'Hub de pagos': RED,
   'Cuenta Rocket': ORANGE, 'Controles de Integridad': ORANGE, '2FA en trx': ORANGE,
   'Programa Lazos': ORANGE, 'Reingeniería IVR': ORANGE, 'Automatización de procesos ATC': ORANGE,
-  'Plataforma Banca Gobierno': BLUE, 'Plataforma Reportes Regulatorios': black,
+  'Plataforma Banca Gobierno': BLUE, 'Plataforma Reportes Regulatorios': RED,
 };
 
 function getProjectColor(name) {
