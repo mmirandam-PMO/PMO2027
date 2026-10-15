@@ -1,89 +1,90 @@
 :root {
   --navy: #1B355D;
-  --bg-main: #F4F6F9;
+  --bg-main: #F7F8FA;
   --white: #ffffff;
-  --border: #E5E9F0;
-  --text-dark: #1E293B;
-  --text-muted: #64748B;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-  --radius: 12px;
+  --border: #E1E4E8;
+  --text-dark: #24292F;
+  --text-muted: #6B7280;
+  --shadow: 0 4px 16px rgba(27, 42, 74, 0.08);
+  --radius: 14px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Inter', sans-serif; background: var(--bg-main); color: var(--text-dark); min-height: 100vh; }
 .wrap { max-width: 1440px; margin: 0 auto; padding: 0 34px; }
 
-/* Header unificado */
 header.masthead {
-  background: var(--bg-main);
-  padding: 24px 0 12px 0;
-}
-.header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-
-.brand-block { display: flex; flex-direction: column; }
-.main-title { font-size: 26px; font-weight: 700; color: #1B355D; letter-spacing: -0.5px; }
-.sub-meta { font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 4px; }
-.meta-link { color: #1B355D; text-decoration: underline; font-weight: 600; }
-
-/* Buscador */
-input { border: 1px solid #CBD5E1; border-radius: 8px; padding: 10px 16px; width: 24px; min-width: 260px; font-size: 14px; outline: none; background: var(--white); }
-input:focus { border-color: #75A4EC; }
-
-/* Navegación Ovalada Tipo Pastilla */
-.navigation-tabs {
-  display: inline-flex;
-  background: #E2ECF9;
-  padding: 4px;
-  border-radius: 30px;
-}
-.tab-link {
-  padding: 8px 24px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #1B355D;
-  text-decoration: none;
-  border-radius: 25px;
-  transition: all 0.2s ease;
-}
-.tab-link.active {
-  background: #6C9CE4;
+  background: linear-gradient(90deg, var(--navy) 0%, #1B4E5A 100%);
   color: var(--white);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 14px rgba(27,42,74,.28);
+  margin-bottom: 28px;
 }
+.header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
+.brand-top { font-size: 11px; text-transform: uppercase; font-weight: 700; color: #7DACE2; letter-spacing: .5px; }
+.brand h1 { font-family: 'Merriweather', serif; font-size: 22px; font-weight: 900; }
 
-/* Grid del Tablero */
-.dashboard-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 20px; }
+input { border: 1px solid var(--border); border-radius: 10px; padding: 8px 14px; width: 280px; font-size: 13px; outline: none; }
+.search-area input { background: rgba(255,255,255,0.15); color: var(--white); border-color: rgba(255,255,255,0.25); }
+.search-area input::placeholder { color: rgba(255,255,255,0.7); }
+.search-area input:focus { background: var(--white); color: var(--text-dark); }
+
+/* Cuadrícula maestra de tres columnas */
+.dashboard-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
 @media (max-width: 1024px) { .dashboard-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 768px) { .dashboard-grid { grid-template-columns: 1fr; } }
-.column { display: flex; flex-direction: column; gap: 24px; }
 
-/* Tarjetas */
-.card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; border: 1px solid var(--border); }
-.card-head { padding: 16px 20px; background: var(--white); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-.card-head h2 { font-size: 16px; font-weight: 700; color: var(--navy); }
-.badge { background: #E2ECEF; color: var(--navy); padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 700; }
-.section-area { padding: 16px; border-bottom: 1px solid var(--border); }
+/* Forzar alineación limpia hacia arriba sin desfases */
+.column { display: flex; flex-direction: column; gap: 24px; justify-content: flex-start; align-items: stretch; }
+
+/* Tarjetas con corte de overflow para proteger las esquinas redondas */
+.card { 
+  background: var(--white); 
+  border-radius: var(--radius); 
+  box-shadow: var(--shadow); 
+  overflow: hidden; 
+  position: relative;
+}
+
+/* Pseudo-elemento para pintar la línea superior con gradiente sin romper la curva */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  z-index: 10;
+}
+
+.header-minorista::before { background: linear-gradient(90deg, #4A90E2 0%, #2980B9 100%); }
+.header-regulatorios::before { background: linear-gradient(90deg, #A04000 0%, #D35400 100%); }
+.header-mayorista::before { background: linear-gradient(90deg, #D35400 0%, #F39C12 100%); }
+.header-hub::before { background: linear-gradient(90deg, #BDC3C7 0%, #7F8C8D 100%); }
+.header-carryover::before { background: linear-gradient(90deg, #1F3A60 0%, #34495E 100%); }
+
+/* Títulos de los programas grandes y ejecutivos */
+.card-head { padding: 18px 20px 14px; background: #FAFBFC; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.card-head h2 { font-family: 'Merriweather', serif; font-size: 21px; font-weight: 800; color: var(--navy); }
+.badge { background: rgba(27,42,74,0.08); color: var(--navy); padding: 4px 10px; border-radius: 20px; font-size: 13px; font-weight: 700; }
+
+.section-area { padding: 14px 18px; border-bottom: 1px solid #FAFBFD; }
 .section-area:last-child { border-bottom: none; }
-.section-title { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; display: block; }
-.proj-list { display: flex; flex-direction: column; gap: 8px; }
-.proj-row { background: #F8FAFC; padding: 10px 14px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; border: 1px solid #F1F5F9; }
-.proj-name { font-weight: 500; }
-.proj-owner { font-size: 11px; font-weight: 700; background: #E2E8F0; color: #475569; padding: 2px 6px; border-radius: 4px; }
+.section-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.section-title { font-size: 13.5px; font-weight: 700; color: var(--navy); }
+.subprogram-leads { font-size: 12px; font-weight: 700; color: #00788A; margin-bottom: 8px; }
 
-/* Nuevo Roadmap Estilo Gantt Sin Efecto Excel */
-.roadmap-container { background: transparent; margin-top: 20px; }
-.roadmap-table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
-.roadmap-table th { color: var(--text-muted); font-size: 12px; font-weight: 600; padding: 8px 16px; text-align: center; text-transform: uppercase; }
-.roadmap-table th.meta-col { text-align: left; }
-.roadmap-table th.q-header { text-align: center; }
+/* Sub-bloques internos para la visualización paralela de Banca Mayorista */
+.subprogram-block-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.subprogram-card { background: #FAFBFD; border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+.subprogram-title { font-size: 13px; font-weight: 700; color: var(--navy); border-bottom: 1px dashed var(--border); padding-bottom: 4px; margin-bottom: 8px; }
 
-.roadmap-table tr { background: var(--white); box-shadow: var(--shadow); }
-.roadmap-table td { padding: 18px 16px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); font-size: 14px; background: var(--white); }
-.roadmap-table td:first-child { border-left: 1px solid var(--border); border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
-.roadmap-table td:last-child { border-right: 1px solid var(--border); border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
-
-.proj-cell-title { font-weight: 600; color: #1B355D; }
-.proj-cell-owner { color: var(--text-muted); font-weight: 500; }
-
-.timeline-container-cell { padding: 0 20px !important; position: relative; width: 55%; }
-.timeline-wrapper { position: relative; height: 100%; min-height: 20px; width: 100%; background: #F1F5F9; border-radius: 20px; overflow: hidden; }
-.timeline-bar { position: absolute; top: 0; bottom: 0; background: #9EC2F7; border-radius: 20px; transition: all 0.3s ease; }
+.proj-list { display: flex; flex-direction: column; gap: 6px; }
+.proj-row { background: #F5F7FA; padding: 10px 12px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; transition: .15s; }
+.proj-row:hover { transform: translateX(3px); background: #EDF1F5; }
+.proj-name { font-weight: 500; line-height: 1.4; padding-right: 8px; }
+.proj-owner { font-size: 11px; font-weight: 700; background: #E2E8F0; color: #4A5568; padding: 2px 6px; border-radius: 4px; white-space: nowrap; }
+.proj-owner.tbd { background: rgba(232,83,1,0.1); color: #E85301; }
