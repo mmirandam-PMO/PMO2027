@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roadmap 2027 · PMO</title>
   <link href="https://googleapis.com" rel="stylesheet">
+  <!-- Reutiliza tus mismos estilos corporativos existentes sin cambiarlos -->
   <link rel="stylesheet" href="styles.css">
   
-  <!-- Lector automático integrado para tu Excel/CSV -->
+  <!-- Lector automático integrado para tu archivo data.csv -->
   <script src="https://cloudflare.com"></script>
 
   <style>
+    /* Estructura del encabezado idéntica a tu index.html */
     .brand-flex-layout {
       display: flex;
       align-items: flex-end;
@@ -37,7 +39,7 @@
       color: #1B355D;
     }
 
-    /* Estructuración del Diagrama por Trimestres */
+    /* Estructuración del Diagrama Gantt por Trimestres (Q) */
     .gantt-box { 
       background: var(--white); 
       border-radius: var(--radius); 
@@ -88,10 +90,15 @@
   <header class="masthead">
     <div class="wrap header-inner">
       <div class="brand">
+        <!-- Mismo nombre institucional intacto -->
         <span class="brand-top">PORTAFOLIO DE PROYECTOS 2027 · PMO</span>
         <div class="brand-flex-layout">
+          <!-- Título cambiado a Roadmap 2027 -->
           <h1>Roadmap 2027</h1>
-          <a href="#" class="btn-executive-roadmap">Roadmap</a>
+          <!-- Botón de regreso estilizado con la misma clase corporativa -->
+          <a href="index.html" class="btn-executive-roadmap">
+            ⬅️ Regresar al Tablero
+          </a>
         </div>
       </div>
       <div class="search-area">
@@ -102,6 +109,7 @@
 
   <main class="wrap">
     <div class="gantt-box">
+      <!-- Encabezado de la línea de tiempo por Qs -->
       <div class="gantt-title-row">
         <div class="align-left">Proyecto</div>
         <div class="align-left">Responsable</div>
@@ -110,6 +118,7 @@
         <div>Q3 2027</div>
         <div>Q4 2027</div>
       </div>
+      <!-- Espacio donde se renderizan los datos filtrados con fecha -->
       <div id="gantt-content"></div>
     </div>
   </main>
@@ -117,6 +126,7 @@
   <script>
     let rawExcelData = [];
 
+    // Función matemática para posicionar proporcionalmente la barra en los trimestres de 2027
     function getYearPercentage(dateString) {
       const current = new Date(dateString);
       const start = new Date('2027-01-01');
@@ -125,6 +135,7 @@
       return Math.min(Math.max(percentage, 0), 100);
     }
 
+    // Renderizador dinámico de filas
     function renderGantt() {
       const container = document.getElementById('gantt-content');
       if (!container) return;
@@ -139,7 +150,7 @@
         const inicio = row["Fecha de inicio"] || "";
         const fin = row["Fecha de fin"] || "";
 
-        // Omitir estrictamente celdas sin rango asignado
+        // Condición estricta: Solo procesar lo que tenga fechas en el CSV
         if (!inicio || !fin) return;
 
         if (proy.toLowerCase().includes(term) || resp.toLowerCase().includes(term) || clasi.toLowerCase().includes(term)) {
@@ -162,6 +173,7 @@
       });
     }
 
+    // Carga automatizada del archivo local data.csv
     window.addEventListener('DOMContentLoaded', () => {
       Papa.parse("data.csv", {
         download: true,
