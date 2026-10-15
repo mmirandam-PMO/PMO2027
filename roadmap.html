@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles.css">
 
   <style>
+    /* Distribución de la cabecera corporativa */
     .brand-flex-layout {
       display: flex;
       align-items: flex-end;
@@ -34,68 +35,107 @@
       color: #1B355D;
     }
 
-    /* Contenedor principal Gantt */
-    .gantt-box { 
-      background: var(--white); 
-      border-radius: var(--radius); 
-      box-shadow: var(--shadow); 
-      overflow: hidden; 
-      border: 1px solid var(--border); 
-      margin-top: 20px; 
+    /* Estructura Maestra del Gantt en 6 Columnas (Clasificación + Proyecto + Responsable + 3 Trimestres) */
+    .gantt-grid-layout {
+      display: grid;
+      grid-template-columns: 1.5fr 2fr 1fr repeat(4, 1fr);
+      align-items: center;
     }
-    .gantt-title-row { 
-      display: grid; 
-      grid-template-columns: 2.5fr 1fr repeat(4, 1fr); 
-      background: var(--navy); 
-      color: var(--white); 
-      font-size: 13px; 
-      font-weight: 700; 
-      text-align: center; 
+
+    /* Cabecera del Roadmap flotante y moderna */
+    .roadmap-gantt-header {
+      background: var(--navy);
+      color: var(--white);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
     }
-    .gantt-title-row div { 
-      padding: 14px; 
-      border-right: 1px solid rgba(255, 255, 255, 0.1); 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
+    .roadmap-gantt-header div {
+      padding: 14px;
     }
-    .gantt-title-row .align-left { 
-      justify-content: flex-start; 
-      padding-left: 20px; 
+    .roadmap-gantt-header .text-left {
+      text-align: left;
+      padding-left: 16px;
     }
-    .gantt-row { 
-      display: grid; 
-      grid-template-columns: 2.5fr 1fr 4fr; 
-      border-bottom: 1px solid var(--border); 
-      align-items: center; 
-      background: var(--white); 
+
+    /* Listado de Proyectos en formato Tarjeta Ejecutiva */
+    .roadmap-cards-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    .gantt-row:last-child { border-bottom: none; }
-    .cell-info { padding: 14px 20px; font-size: 13.5px; }
-    .cell-info small { display: block; font-size: 11px; color: var(--text-muted); font-weight: 700; text-transform: uppercase; margin-bottom: 2px; }
-    .cell-info span { font-weight: 500; color: var(--text-dark); }
-    .cell-lead { padding: 14px; font-size: 12px; color: #4A5568; font-weight: 700; }
-    
-    /* Espacio del timeline track */
-    .timeline-track { 
-      display: grid; 
-      grid-template-columns: repeat(4, 1fr); 
-      height: 48px; 
-      position: relative; 
-      align-items: center; 
-      border-left: 1px solid var(--border); 
+    .executive-gantt-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(27, 42, 74, 0.04);
+      transition: all 0.2s ease;
+      min-height: 56px;
     }
-    .q-divider { height: 100%; border-right: 1px solid #EDF2F7; }
-    .q-divider:last-child { border-right: none; }
-    
-    /* Barras azules ejecutivas */
-    .gantt-bar-fill { 
-      position: absolute; 
-      height: 12px; 
-      background: #4A90E2; 
-      border-radius: 20px; 
-      z-index: 5; 
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    .executive-gantt-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(27, 42, 74, 0.08);
+      border-color: #CBD5E1;
+    }
+
+    /* Estilos para el texto de las celdas */
+    .gantt-cell {
+      padding: 10px 16px;
+      font-size: 13px;
+      color: var(--text-dark);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .gantt-cell.classification-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: #00788A;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .gantt-cell.project-title {
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .gantt-cell.owner-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: #4A5568;
+    }
+
+    /* Contenedor e indicadores del Timeline */
+    .gantt-timeline-track {
+      grid-column: span 4;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 100%;
+      position: relative;
+      align-items: center;
+      background: #FAFBFC;
+      border-left: 1px solid var(--border);
+      border-radius: 0 12px 12px 0;
+    }
+    .timeline-q-column {
+      height: 100%;
+      border-right: 1px solid #F1F5F9;
+    }
+    .timeline-q-column:last-child {
+      border-right: none;
+    }
+
+    /* Barras de progreso estilizadas con cápsulas redondeadas y gradiente sutil */
+    .gantt-bar-pill {
+      position: absolute;
+      height: 10px;
+      background: linear-gradient(90deg, #3B82F6 0%, #60A5FA 100%);
+      border-radius: 20px;
+      z-index: 10;
+      box-shadow: 0 2px 4px rgba(59, 130, 246, 0.25);
     }
   </style>
 </head>
@@ -113,32 +153,34 @@
         </div>
       </div>
       <div class="search-area">
-        <input type="text" id="gantt-search" placeholder="🔍 Buscar proyecto o responsable...">
+        <input type="text" id="gantt-search" placeholder="🔍 Buscar por clasificación, proyecto o líder...">
       </div>
     </div>
   </header>
 
   <main class="wrap">
-    <div class="gantt-box">
-      <div class="gantt-title-row">
-        <div class="align-left">Proyecto</div>
-        <div class="align-left">Responsable</div>
-        <div>Q1 2027</div>
-        <div>Q2 2027</div>
-        <div>Q3 2027</div>
-        <div>Q4 2027</div>
-      </div>
-      <div id="gantt-content"></div>
+    <!-- Fila del Encabezado Principal del Timeline -->
+    <div class="gantt-grid-layout roadmap-gantt-header">
+      <div class="text-left">Clasificación</div>
+      <div class="text-left">Proyecto</div>
+      <div class="text-left">Responsable</div>
+      <div>Q1 2027</div>
+      <div>Q2 2027</div>
+      <div>Q3 2027</div>
+      <div>Q4 2027</div>
     </div>
+
+    <!-- Contenedor dinámico de Tarjetas Modulares -->
+    <div id="gantt-content" class="roadmap-cards-container"></div>
   </main>
 
-  <!-- Cargamos tu nuevo archivo JavaScript estructurado -->
+  <!-- Enlace a tu archivo de datos existente -->
   <script src="roadmap-data.js"></script>
   <script>
-    // Parsea las fechas de forma segura previniendo desajustes de zona horaria
+    // Calcula la posición porcentual exacta dentro de los 365 días del año 2027
     function getYearPercentage(dateString) {
       const parts = dateString.trim().split('-');
-      if(parts.length !== 3) return 0;
+      if (parts.length !== 3) return 0;
       
       const current = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
       const start = new Date(2027, 0, 1);
@@ -148,6 +190,7 @@
       return Math.min(Math.max(percentage, 0), 100);
     }
 
+    // Renderizador del tablero dinámico en formato de tarjetas ejecutivas
     function renderGantt() {
       const container = document.getElementById('gantt-content');
       if (!container) return;
@@ -155,7 +198,6 @@
 
       const term = document.getElementById('gantt-search').value.toLowerCase().trim();
 
-      // "excelData" viene directo de roadmap-data.js
       excelData.forEach(row => {
         const clasi = row.clasificacion || "";
         const proy = row.proyecto || "";
@@ -163,24 +205,29 @@
         const inicio = row.inicio || "";
         const fin = row.fin || "";
 
+        // Omitir de forma estricta las filas sin fechas válidas
         if (!inicio || !fin) return;
 
         if (proy.toLowerCase().includes(term) || resp.toLowerCase().includes(term) || clasi.toLowerCase().includes(term)) {
           const leftPercent = getYearPercentage(inicio);
           const rightPercent = getYearPercentage(fin);
-          const barWidth = Math.max(rightPercent - leftPercent, 2); // Ancho mínimo estético
+          const barWidth = Math.max(rightPercent - leftPercent, 2.5);
 
-          const divRow = document.createElement('div');
-          divRow.className = 'gantt-row';
-          divRow.innerHTML = `
-            <div class="cell-info"><small>${clasi}</small><span>${proy}</span></div>
-            <div class="cell-lead">${resp || '--'}</div>
-            <div class="timeline-track">
-              <div class="q-divider"></div><div class="q-divider"></div><div class="q-divider"></div><div class="q-divider"></div>
-              <div class="gantt-bar-fill" style="left: ${leftPercent}%; width: ${barWidth}%;"></div>
+          const card = document.createElement('div');
+          card.className = 'gantt-grid-layout executive-gantt-card';
+          card.innerHTML = `
+            <div class="gantt-cell classification-tag">${clasi}</div>
+            <div class="gantt-cell project-title">${proy}</div>
+            <div class="gantt-cell owner-badge">${resp || '--'}</div>
+            <div class="gantt-timeline-track">
+              <div class="timeline-q-column"></div>
+              <div class="timeline-q-column"></div>
+              <div class="timeline-q-column"></div>
+              <div class="timeline-q-column"></div>
+              <div class="gantt-bar-pill" style="left: ${leftPercent}%; width: ${barWidth}%;"></div>
             </div>
           `;
-          container.appendChild(divRow);
+          container.appendChild(card);
         }
       });
     }
