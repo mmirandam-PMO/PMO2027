@@ -14,7 +14,7 @@ const pmoData = {
             { nombre: "Créditos Asociados a Nómina (CAN)", responsable: "S. Olivero" },
             { nombre: "Cash Loans", responsable: "S. Olivero" },
             { nombre: "Personalización de Ofertas", responsable: "S. Olivero" },
-            { nombre: "Cuenta Rocket", responsable: "S. Olivero" }
+            { nombre: "Cuenta Rocket", responsable: "S. Olivero", destacado: "orange" }
           ]
         }
       ]
@@ -28,7 +28,7 @@ const pmoData = {
           proyectos: [
             { nombre: "PCI DSS", responsable: "C. Carreón" },
             { nombre: "2o Factor Autentic. trx TDD no presenc.", responsable: "C. Carreón" },
-            { nombre: "Formulario FATCA / CRS", responsable: "C. Budar" },
+            { nombre: "Formulario FATCA / CRS", responsable: "C. Budar", destacado: "pink" },
             { nombre: "Identificador Cliente Derechos ARCO", responsable: "C. Carreón" }
           ]
         },
@@ -36,43 +36,43 @@ const pmoData = {
           tipo: "Nuevos proyectos • 3",
           proyectos: [
             { nombre: "Nueva Plataforma PLD", responsable: "C. Carreón" },
-            { nombre: "Plataforma Reportes Regulatorios", responsable: "C. Budar" },
-            { filename: "image", nombre: "Herramientas Ciberseguridad", responsable: "C. Carreón" }
+            { nombre: "Plataforma Reportes Regulatorios", responsable: "C. Budar", destacado: "pink" },
+            { nombre: "Herramientas Ciberseguridad", responsable: "C. Carreón" }
           ]
         }
       ]
     },
     {
       nombre: "Banca Mayorista",
-      total_proyectos: 8,
+      total_proyectos: "",
       subprogramas: [
         { 
           nombre: "Banca de Empresas · Programa", 
           responsables: ["R. Galindo", "B. Flores"], 
           proyectos: [
-            { nombre: "Plataforma Banca Empresarial Fase 1 (PyME, Empresa Mediana y Gpos Corp)", responsable: "R. Galindo / B. Flores" }, 
-            { nombre: "• Proyectos Crédito", responsable: "TBD" },
-            { nombre: "• Proyectos Captación", responsable: "TBD" },
-            { nombre: "• Proyectos Servicios", responsable: "TBD" }
+            { nombre: "Plataforma Banca Empresarial Fase 1 (PyME, Empresa Mediana y Gpos Corporativos)", responsable: "R. Galindo / B. Flores", destacado: "blue" }, 
+            { nombre: "• Proyectos Crédito", responsable: "TBD", destacado: "muted" },
+            { nombre: "• Proyectos Captación", responsable: "TBD", destacado: "muted" },
+            { nombre: "• Proyectos Servicios", responsable: "TBD", destacado: "muted" }
           ] 
         },
         { 
           nombre: "Banca de Gobierno · Programa", 
           responsables: ["R. Vázquez"], 
           proyectos: [
-            { nombre: "Plataforma Banca Gobierno Fase 1 (TBD)", responsable: "R. Vázquez" },
-            { nombre: "• Proyectos Crédito", responsable: "TBD" },
-            { nombre: "• Proyectos Captación", responsable: "TBD" },
-            { nombre: "• Proyectos Servicios", responsable: "TBD" }
+            { nombre: "Plataforma Banca Gobierno Fase 1 (TBD)", responsable: "R. Vázquez", destacado: "blue" },
+            { nombre: "• Proyectos Crédito", responsable: "TBD", destacado: "muted" },
+            { nombre: "• Proyectos Captación", responsable: "TBD", destacado: "muted" },
+            { nombre: "• Proyectos Servicios", responsable: "TBD", destacado: "muted" }
           ] 
         },
         { 
           nombre: "Transversales • 4", 
           proyectos: [
-            { nombre: "Banca Electrónica y Móvil", responsable: "--" }, 
-            { nombre: "Hub de pagos", responsable: "--" }, 
+            { nombre: "Banca Electrónica y Móvil", responsable: "--", destacado: "red" }, 
+            { nombre: "Hub de pagos", responsable: "--", destacado: "red" }, 
             { nombre: "Dispersión de Nóminas", responsable: "--" }, 
-            { nombre: "Banco Recaudador", responsable: "R. Vázquez" }
+            { nombre: "Banco Recaudador", responsable: "R. Vázquez", destacado: "red" }
           ] 
         }
       ]
@@ -99,9 +99,9 @@ const pmoData = {
         {
           tipo: "Enfoque al Cliente • 3",
           proyectos: [
-            { nombre: "Programa Lazos", responsable: "A. Nava" },
-            { nombre: "Reingeniería IVR", responsable: "A. Nava" },
-            { nombre: "Automatización de procesos ATC (3 saws)", responsable: "A. Nava" }
+            { nombre: "Programa Lazos", responsable: "A. Nava", destacado: "orange" },
+            { nombre: "Reingeniería IVR", responsable: "A. Nava", destacado: "orange" },
+            { nombre: "Automatización de procesos ATC (3 saws)", responsable: "A. Nava", destacado: "orange" }
           ]
         },
         {
