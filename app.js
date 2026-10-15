@@ -1,15 +1,10 @@
 function getProjectColor(q) {
-  const nombre = q.nombre;
-  
-  // Regla manual fija para tus proyectos destacados de la imagen
-  if (nombre.includes("Plataforma Banca Empresarial")) return '#D35400'; // Color Naranja/Óxido llamativo
-  if (nombre.includes("Plataforma Reportes Regulatorios")) return '#4A90E2'; // Color Azul Minorista/Llamativo
-  
-  // Reglas por defecto
-  if (nombre.startsWith('•')) return '#7F8C8D'; // Gris para los subproyectos
+  if (q.destacado === 'muted') return '#7F8C8D';
+  if (q.destacado === 'blue') return '#1B355D';
   if (q.destacado === 'orange') return '#D35400';
   if (q.destacado === 'red') return '#C0392B';
-  return '#24292F'; // Negro/Gris oscuro para el texto normal
+  if (q.destacado === 'pink') return '#9B59B6';
+  return '#24292F';
 }
 
 function getProgEmoji(name) {
@@ -78,10 +73,10 @@ function render() {
     col2.appendChild(document.createRange().createContextualFragment(cardHtml));
   }
 
-  // 3. Banca Mayorista -> Columna 1
+  // 3. Banca Mayorista -> Columna 1 (Abajo de Minorista)
   const may = findProg('Banca Mayorista');
   if (may) {
-    let cardHtml = `<div class="card header-mayorista"><div class="card-head"><h2>${getProgEmoji(may.nombre)} ${may.nombre}</h2><span class="badge">8</span></div>`;
+    let cardHtml = `<div class="card header-mayorista"><div class="card-head"><h2>${getProgEmoji(may.nombre)} ${may.nombre}</h2></div>`;
     may.subprogramas.forEach(sp => {
       const res = buildProjectRows(sp.proyectos, term);
       if (res.matches > 0 || term === '') {
@@ -93,7 +88,7 @@ function render() {
     col1.appendChild(document.createRange().createContextualFragment(cardHtml));
   }
 
-  // 4. Hub de Innovación -> Columna 2
+  // 4. Hub de Innovación -> Columna 2 (Abajo de Regulatorios)
   const hub = findProg('Hub de Innovación');
   if (hub) {
     let cardHtml = `<div class="card header-hub"><div class="card-head"><h2>${getProgEmoji(hub.nombre)} ${hub.nombre}</h2><span class="badge">${hub.total_proyectos}</span></div>`;
@@ -105,7 +100,7 @@ function render() {
     col2.appendChild(document.createRange().createContextualFragment(cardHtml));
   }
 
-  // 5. Carry-over 2026 -> Columna 3
+  // 5. Carry-over 2026 -> Columna 3 Sola
   const co = findProg('Carry-over 2026');
   if (co) {
     let cardHtml = `<div class="card header-carryover"><div class="card-head"><h2>${getProgEmoji(co.nombre)} ${co.nombre}</h2><span class="badge">${co.total_proyectos}</span></div>`;
@@ -117,6 +112,7 @@ function render() {
     col3.appendChild(document.createRange().createContextualFragment(cardHtml));
   }
 
+  // Contador de TBD automático para el KPI superior
   let tbdCount = 0;
   pmoData.programas.forEach(p => {
     const list = p.categorias || p.subprogramas || [];
@@ -126,8 +122,7 @@ function render() {
       });
     });
   });
-  const counterEl = document.getElementById('tbd-counter');
-  if (counterEl) counterEl.textContent = tbdCount;
+  document.getElementById('tbd-counter').textContent = tbdCount;
 }
 
 document.getElementById('search-input').addEventListener('input', render);
