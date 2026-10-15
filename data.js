@@ -1,4 +1,4 @@
-// Este es tu insumo de datos extraído exactamente de tu lógica original
+// data.js - Datos reales del Portafolio 2027
 const pmoData = {
   programas: [
     {
@@ -8,102 +8,121 @@ const pmoData = {
         {
           tipo: "Nuevos proyectos",
           proyectos: [
-            { nombre: "Plataforma Banca Empresarial", responsable: "Juan P." },
-            { nombre: "Banca Electrónica y Móvil", responsable: "María L." },
-            { nombre: "Hub de pagos", responsable: "Carlos M." },
-            { nombre: "Cuenta Rocket", responsable: "Ana G." },
-            { nombre: "Controles de Integridad", responsable: "Luis T." },
-            { nombre: "2FA en trx", responsable: "Elena R." },
-            { nombre: "Programa Lazos", responsable: "Pedro S." },
-            { nombre: "Reingeniería IVR", responsable: "TBD" }
+            { nombre: "App de Inversiones MVP 2", responsable: "S. Olivero" },
+            { nombre: "Rediseño Proceso de Originación MVP 2", responsable: "S. Olivero" },
+            { nombre: "Copiloto MVP 2", responsable: "S. Olivero" },
+            { nombre: "Seguros RANMA", responsable: "S. Olivero" },
+            { nombre: "Créditos Asociados a Nómina (CAN)", responsable: "S. Olivero" },
+            { nombre: "Cash Loans", responsable: "S. Olivero" },
+            { nombre: "Personalización de Ofertas", responsable: "S. Olivero" },
+            { nombre: "Cuenta Rocket", responsable: "S. Olivero" }
           ]
         }
       ]
     },
     {
       nombre: "Regulatorios",
-      total_proyectos: 8,
+      total_proyectos: 7,
       categorias: [
         {
           tipo: "Carryover 2026",
           proyectos: [
-            { nombre: "Plataforma Reportes Regulatorios", responsable: "Jorge E." },
-            { nombre: "Automatización de procesos ATC", responsable: "Diana V." },
-            { nombre: "• Ajustes Normativos A", responsable: "TBD" },
-            { nombre: "• Ajustes Normativos B", responsable: "Sofia P." },
-            { nombre: "• Validación de Datos C", responsable: "TBD" },
-            { nombre: "• Reporte Trimestral D", responsable: "Raul M." }
+            { nombre: "PCI DSS", responsable: "C. Carreón" },
+            { nombre: "2o Factor Autentic. trx TDD no presenc.", responsable: "C. Carreón" },
+            { nombre: "Formulario FATCA / CRS", responsable: "C. Budar" },
+            { nombre: "Identificador Cliente Derechos ARCO", responsable: "C. Carreón" }
           ]
         },
         {
           tipo: "Nuevos proyectos",
           proyectos: [
-            { nombre: "Auditoría General 2026", responsable: "Lucas K." },
-            { nombre: "Mitigación de Riesgos Phase 1", responsable: "TBD" }
+            { nombre: "Nueva Plataforma PLD", responsable: "C. Carreón" },
+            { nombre: "Plataforma Reportes Regulatorios", responsable: "C. Budar" },
+            { nombre: "Herramientas Ciberseguridad", responsable: "C. Carreón" }
           ]
         }
       ]
     },
     {
       nombre: "Banca Mayorista",
-      total_proyectos: 7,
+      total_proyectos: 8,
       subprogramas: [
         { 
-          nombre: "Banca de Empresas • Programa", 
-          responsables: ["Ingrid L.", "Alex F."], 
+          nombre: "Banca de Empresas · Programa", 
+          responsables: ["R. Galindo", "B. Flores"], 
           proyectos: [
-            { nombre: "Proyectos Gpos Corporativos", responsable: "Ingrid L." }, 
-            { nombre: "Modernización de Crédito", responsable: "Alex F." }
+            { nombre: "Plataforma Banca Empresarial Fase 1 (PyME, Empresa Mediana y Gpos Corporativos)", responsable: "R. Galindo / B. Flores" }, 
+            { nombre: "• Proyectos Crédito", responsable: "TBD" },
+            { nombre: "• Proyectos Captación", responsable: "TBD" },
+            { nombre: "• Proyectos Servicios", responsable: "TBD" }
           ] 
         },
         { 
-          nombre: "Banca de Gobierno • Programa", 
-          responsables: ["Oscar H."], 
+          nombre: "Banca de Gobierno · Programa", 
+          responsables: ["R. Vázquez"], 
           proyectos: [
-            { nombre: "Plataforma Banca Gobierno", responsable: "Oscar H." }
+            { nombre: "Plataforma Banca Gobierno Fase 1 (TBD)", responsable: "R. Vázquez" },
+            { nombre: "• Proyectos Crédito", responsable: "TBD" },
+            { nombre: "• Proyectos Captación", responsable: "TBD" },
+            { nombre: "• Proyectos Servicios", responsable: "TBD" }
           ] 
         },
         { 
           nombre: "Transversales", 
           proyectos: [
-            { nombre: "Migración de Core Mayorista", responsable: "TBD" }, 
-            { nombre: "Optimización Canales", responsable: "S. Romero" }, 
-            { nombre: "API Gateway Mayorista", responsable: "TBD" }, 
-            { nombre: "Seguridad Perimetral", responsable: "Lucas K." }
+            { nombre: "Banca Electrónica y Móvil", responsable: "--" }, 
+            { nombre: "Hub de pagos", responsable: "--" }, 
+            { nombre: "Dispersión de Nóminas", responsable: "--" }, 
+            { nombre: "Banco Recaudador", responsable: "R. Vázquez" }
           ] 
         }
       ]
     },
     {
       nombre: "Hub de Innovación",
-      total_proyectos: 3,
+      total_proyectos: 5,
       categorias: [
         {
-          tipo: "Autorizados",
+          tipo: "Por autorizar",
           proyectos: [
-            { nombre: "Laboratorio Blockchain", responsable: "Mateo D." },
-            { nombre: "IA para Atención al Cliente", responsable: "TBD" },
-            { nombre: "Wallet Prototipo", responsable: "Clara Z." }
+            { nombre: "Comunidad Lazos", responsable: "R. Flores" },
+            { nombre: "MVNO", responsable: "--" },
+            { nombre: "Productos de crédito (3) ...", responsable: "--" },
+            { nombre: "Producto de crédito", responsable: "--" }
           ]
         }
       ]
     },
     {
       nombre: "Carry-over 2026",
-      total_proyectos: 11,
+      total_proyectos: 13,
       categorias: [
         {
-          tipo: "Infraestructura",
+          tipo: "Enfoque al Cliente",
           proyectos: [
-            { nombre: "Renovación de Servidores", responsable: "Sistemas" },
-            { nombre: "Migración a la Nube", responsable: "Cloud Team" }
+            { nombre: "Programa Lazos", responsable: "A. Nava" },
+            { nombre: "Reingeniería IVR", responsable: "A. Nava" },
+            { nombre: "Automatización de procesos ATC (3 saws)", responsable: "A. Nava" }
           ]
         },
         {
-          tipo: "Seguridad",
+          tipo: "Operaciones",
           proyectos: [
-            { nombre: "Actualización de Firewalls", responsable: "Seguridad" },
-            { nombre: "Cifrado de BDs", responsable: "DBAs" }
+            { nombre: "Automatización proceso trxs POS", responsable: "A. Nava" },
+            { nombre: "Implementación de TEF", responsable: "A. Nava" },
+            { nombre: "Tokenización", responsable: "A. Nava" },
+            { nombre: "Migración Campo c53 al c57", responsable: "A. Nava" }
+          ]
+        },
+        {
+          tipo: "Modernización Tecnológica",
+          proyectos: [
+            { nombre: "CRM Objetivo", responsable: "M. Matus" },
+            { nombre: "Content Manager Objetivo (Filenet)", responsable: "M. Matus" },
+            { nombre: "Upgrade S4 HANNA (E R P)", responsable: "C. Budar" },
+            { nombre: "Herramientas IA", responsable: "M. Matus" },
+            { nombre: "Implementación Middleware (Greenfield)", responsable: "M. Matus" },
+            { nombre: "Nuevo Core Bancario & Bca Empresarial", responsable: "M. Matus" }
           ]
         }
       ]
