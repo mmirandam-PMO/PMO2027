@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio de Proyectos 2027 · PMO</title>
+  <link href="https://googleapis.com" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <span class="brand-top">Portafolio de Proyectos 2027 · PMO</span>
+        <h1>Tablero de Control Operativo</h1>
+      </div>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div class="search-area">
+          <input type="text" id="search-input" placeholder="🔍 Buscar proyecto o responsable...">
+        </div>
+        <div class="roadmap-action-box">
+          <a href="roadmap.html" class="btn-roadmap">
+            <span>🗺️ Ver Roadmap Ejecutivo</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="dashboard-grid">
+      <div class="column" id="col-1"></div>
+      <div class="column" id="col-2"></div>
+      <div class="column" id="col-3"></div>
+    </div>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

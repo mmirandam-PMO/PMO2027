@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roadmap de Proyectos 2027 · PMO</title>
+  <link href="https://googleapis.com" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <h1>🗺️ Roadmap Estratégico 2027</h1>
+      </div>
+      <a href="index.html" class="btn-back" style="
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--white);
+        padding: 8px 16px;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        transition: all 0.2s ease;
+      ">
+        Volver al Tablero
+      </a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="roadmap-container">
+      <table class="roadmap-table">
+        <thead>
+          <tr>
+            <th class="meta-col" style="width: 15%;">Clasificación</th>
+            <th class="meta-col" style="width: 25%;">Proyecto / Responsable</th>
+            <th style="width: 60%;">Timeline Anual</th>
+          </tr>
+          <tr style="background: #F4F6F8;">
+            <th class="meta-col"></th>
+            <th class="meta-col"></th>
+            <th style="padding: 0;">
+              <div style="display: grid; grid-template-columns: repeat(12, 1fr); text-align: center; font-size: 11px;">
+                <div>Ene</div><div>Feb</div><div>Mar</div><div>Abr</div><div>May</div><div>Jun</div>
+                <div>Jul</div><div>Ago</div><div>Sep</div><div>Oct</div><div>Nov</div><div>Dic</div>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="roadmap-tbody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="data.js"></script>
+  <script>
+    function getClsClass(progName) {
+      if (progName.includes('Minorista')) return 'cls-minorista';
+      if (progName.includes('Mayorista')) return 'cls-mayorista';
+      if (progName.includes('Regulatorios')) return 'cls-regulatorios';
+      if (progName.includes('Hub')) return 'cls-hub';
+      return 'cls-carryover';
+    }
+
+    function renderRoadmap() {
+      const tbody = document.getElementById('roadmap-tbody');
+      let html = '';
+
+      pmoData.programas.forEach(programa => {
+        let listaProyectos = [];
+        if (programa.categorias) {
+          programa.categorias.forEach(c => listaProyectos = listaProyectos.concat(c.proyectos));
+        }
+        if (programa.subprogramas) {
+          programa.subprogramas.forEach(sp => listaProyectos = listaProyectos.concat(sp.proyectos));
+        }
+        if (programa.transversales) {
+          programa.transversales.forEach(t => listaProyectos = listaProyectos.concat(t.proyectos));
+        }
+
+        listaProyectos.forEach((proj, index) => {
+          if(proj.nombre.startsWith('•')) return;
+
+          // Simulación base de la línea de tiempo corporativa
+          let startMonth = 1;
+          let endMonth = 3;
+          if (index % 3 === 1) { startMonth = 4; endMonth = 7; }
+          if (index % 3 === 2) { startMonth = 7; endMonth = 12; }
+
+          const clsStyle = getClsClass(programa.nombre);
+          const responsable = proj.responsable && proj.responsable !== '--' ? proj.responsable : 'TBD';
+
+          const leftPercent = ((startMonth - 1) * 8.333);
+          const widthPercent = ((endMonth - startMonth + 1) * 8.333);
+
+          html += `
+            <tr>
+              <td style="padding-left: 20px;"><span class="classification-badge ${clsStyle}">${programa.nombre}</span></td>
+              <td>
+                <span class="proj-title">${proj.nombre}</span>
+                <span class="proj-lead">👤 ${responsable}</span>
+              </td>
+              <td class="timeline-container-cell">
+                <div class="timeline-wrapper">
+                  <div class="timeline-bar" style="left: calc(${leftPercent}% + 4px); width: calc(${widthPercent}% - 8px);"></div>
+                </div>
+              </td>
+            </tr>
+          `;
+        });
+      });
+      tbody.innerHTML = html;
+    }
+    window.addEventListener('DOMContentLoaded', renderRoadmap);
+  </script>
+</body>
+</html>
