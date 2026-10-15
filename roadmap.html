@@ -7,7 +7,7 @@
   <link href="https://googleapis.com" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Estilos independientes para proteger el flujo limpio sin efecto Excel */
+    /* Estilos independientes para un flujo limpio y pulido sin efecto Excel */
     .brand-flex-layout-rm { display: flex; align-items: flex-end; gap: 18px; flex-wrap: wrap; }
     .btn-back-dashboard {
       display: inline-flex;
@@ -56,7 +56,7 @@
     .tag-nuevos { background: #EAF2FC; color: #1B355D; }
     .tag-carryover { background: #F4F6F7; color: #7F8C8D; }
 
-    /* Estilo del timeline limpio sin celdas de Excel */
+    /* Estilo del timeline limpio sin celdas rígidas */
     .timeline-container-cell-rm { padding: 0 20px !important; position: relative; width: 45%; }
     .timeline-wrapper-rm { position: relative; height: 14px; width: 100%; background: #F3F4F6; border-radius: 20px; overflow: hidden; }
     .timeline-bar-rm { position: absolute; top: 0; bottom: 0; background: #75A4EC; border-radius: 20px; }
@@ -64,14 +64,15 @@
 </head>
 <body>
 
-  <!-- Manteniendo tu cabecera idéntica con el título corregido -->
+  <!-- Cabecera Institucional con el Título Modificado Correctamente -->
   <header class="masthead">
     <div class="wrap header-inner">
       <div class="brand">
         <span class="brand-top">PORTAFOLIO DE PROYECTOS 2027 · PMO</span>
         <div class="brand-flex-layout-rm">
+          <!-- Título principal corregido -->
           <h1>Roadmap 2027</h1>
-          <!-- Botón integrado estilo pastilla ovalada para regresar -->
+          <!-- Botón ovalado para regresar al index -->
           <a href="index.html" class="btn-back-dashboard">
             📋 Ver Tablero
           </a>
@@ -98,14 +99,14 @@
           </tr>
         </thead>
         <tbody id="roadmap-tbody-rm">
-          <!-- Carga dinámica directa desde la matriz -->
+          <!-- Renderizado dinámico inmediato -->
         </tbody>
       </table>
     </div>
   </main>
 
   <script>
-    // Tu fuente de datos directa extraída de tu Excel/XLS
+    // Datos limpios estructurados desde tu XLS/CSV original
     const excelSourceData = [
       { clasif: "Banca Minorista", proj: "Aplicación de inversiones MVP 2", owner: "S. Olivero", start: "2027-01-01", end: "2027-12-31" },
       { clasif: "Banca Minorista", proj: "Rediseño Proceso de Originación MVP 2", owner: "S. Olivero", start: "2027-01-01", end: "2027-12-31" },
@@ -158,6 +159,3 @@
     }
 
     function drawTable(term = '') {
-      const tbody = document.getElementById('roadmap-tbody-rm');
-      let rowsHtml = '';
-
