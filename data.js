@@ -1,3 +1,4 @@
+// Actualizado con las fechas reales del mockup de Banca Minorista
 const pmoData = {
   programas: [
     {
@@ -7,14 +8,14 @@ const pmoData = {
         {
           tipo: "Nuevos proyectos · 8",
           proyectos: [
-            { nombre: "App de Inversiones MVP 2", responsable: "S. Olivero" },
-            { nombre: "Rediseño Proceso de Originación MVP 2", responsable: "S. Olivero" },
-            { nombre: "Copiloto MVP 2", responsable: "S. Olivero" },
-            { nombre: "Seguros RANMA", responsable: "S. Olivero" },
-            { nombre: "Créditos Asociados a Nómina (CAN)", responsable: "S. Olivero" },
-            { nombre: "Cash Loans", responsable: "S. Olivero" },
-            { nombre: "Personalización de Ofertas", responsable: "S. Olivero" },
-            { nombre: "Cuenta Rocket", responsable: "S. Olivero", destacado: "orange" }
+            { nombre: "App de Inversiones MVP 2", responsable: "S. Olivero", startMonth: 3, endMonth: 8 },
+            { nombre: "Rediseño Proceso de Originación MVP 2", responsable: "S. Olivero", startMonth: 4, endMonth: 10 },
+            { nombre: "Copiloto MVP 2", responsable: "S. Olivero", startMonth: 3, endMonth: 7 },
+            { nombre: "Seguros RANMA", responsable: "S. Olivero", startMonth: 5, endMonth: 10 },
+            { nombre: "Créditos Asociados a Nómina (CAN)", responsable: "S. Olivero", startMonth: 3, endMonth: 6 },
+            { nombre: "Cash Loans", responsable: "S. Olivero", startMonth: 4, endMonth: 9 },
+            { nombre: "Personalización de Ofertas", responsable: "S. Olivero", startMonth: 6, endMonth: 11 },
+            { nombre: "Cuenta Rocket", responsable: "S. Olivero", destacado: "orange", startMonth: 5, endMonth: 9 }
           ]
         }
       ]
@@ -26,109 +27,10 @@ const pmoData = {
         {
           tipo: "Carryover 2026 · 4",
           proyectos: [
-            { nombre: "PCI DSS", responsable: "C. Carreón" },
-            { nombre: "2o Factor Autentic. trx TDD no presenc.", responsable: "C. Carreón" },
-            { nombre: "Formulario FATCA / CRS", responsable: "C. Budar", destacado: "pink" },
-            { nombre: "Identificador Cliente Derechos ARCO", responsable: "C. Carreón" }
-          ]
-        },
-        {
-          tipo: "Nuevos proyectos · 3",
-          proyectos: [
-            { nombre: "Nueva Plataforma PLD", responsable: "C. Carreón" },
-            { nombre: "Plataforma Reportes Regulatorios", responsable: "C. Budar", destacado: "blue" },
-            { nombre: "Herramientas Ciberseguridad", responsable: "C. Carreón" }
-          ]
-        }
-      ]
-    },
-    {
-      nombre: "Banca Mayorista",
-      total_proyectos: 8,
-      subprogramas: [
-        { 
-          nombre: "Banca de Empresas · Programa", 
-          responsables: ["R. Galindo", "B. Flores"], 
-          proyectos: [
-            { nombre: "Plataforma Banca Empresarial Fase 1 (PyME, Empresa Mediana y Gpos Corporativos)", responsable: "R. Galindo / B. Flores", destacado: "blue" }, 
-            { nombre: "• Proyectos Crédito", responsable: "TBD", destacado: "muted" },
-            { nombre: "• Proyectos Captación", responsable: "TBD", destacado: "muted" },
-            { nombre: "• Proyectos Servicios", responsable: "TBD", destacado: "muted" }
-          ] 
-        },
-        { 
-          nombre: "Banca de Gobierno · Programa", 
-          responsables: ["R. Vázquez"], 
-          proyectos: [
-            { nombre: "Plataforma Banca Gobierno Fase 1 (TBD)", responsable: "R. Vázquez", destacado: "blue" },
-            { nombre: "• Proyectos Crédito", responsable: "TBD", destacado: "muted" },
-            { nombre: "• Proyectos Captación", responsable: "TBD", destacado: "muted" },
-            { nombre: "• Proyectos Servicios", responsable: "TBD", destacado: "muted" }
-          ] 
-        }
-      ],
-      transversales: [
-        {
-          tipo: "Transversales · 4",
-          proyectos: [
-            { nombre: "Banca Electrónica y Móvil", responsable: "--", destacado: "red" }, 
-            { nombre: "Hub de pagos", responsable: "--", destacado: "red" }
-          ]
-        },
-        {
-          tipo: "Líneas de Negocio",
-          proyectos: [
-            { nombre: "Dispersión de Nóminas", responsable: "--" }, 
-            { nombre: "Banco Recaudador", responsable: "R. Vázquez", destacado: "red" }
-          ]
-        }
-      ]
-    },
-    {
-      nombre: "Hub de Innovación",
-      total_proyectos: 5,
-      categorias: [
-        {
-          tipo: "Por autorizar · 5",
-          proyectos: [
-            { nombre: "Comunidad Lazos", responsable: "R. Flores" },
-            { nombre: "MVNO", responsable: "--" },
-            { nombre: "Productos de crédito (3) ...", responsable: "--" },
-            { nombre: "Producto de crédito", responsable: "--" }
-          ]
-        }
-      ]
-    },
-    {
-      nombre: "Carry-over 2026",
-      total_proyectos: 13,
-      categorias: [
-        {
-          tipo: "Enfoque al Cliente · 3",
-          proyectos: [
-            { nombre: "Programa Lazos", responsable: "A. Nava", destacado: "orange" },
-            { nombre: "Reingeniería IVR", responsable: "A. Nava", destacado: "orange" },
-            { nombre: "Automatización de procesos ATC (3 saws)", responsable: "A. Nava", destacado: "orange" }
-          ]
-        },
-        {
-          tipo: "Operaciones · 4",
-          proyectos: [
-            { nombre: "Automatización proceso trxs POS", responsable: "A. Nava" },
-            { nombre: "Implementación de TEF", responsable: "A. Nava" },
-            { nombre: "Tokenización", responsable: "A. Nava" },
-            { nombre: "Migración Campo c53 al c57", responsable: "A. Nava" }
-          ]
-        },
-        {
-          tipo: "Modernización Tecnológica · 6",
-          proyectos: [
-            { nombre: "CRM Objetivo", responsable: "M. Matus" },
-            { fontname: "sans-serif", nombre: "Content Manager Objetivo (Filenet)", responsable: "M. Matus" },
-            { nombre: "Upgrade S4 HANNA (E R P)", responsable: "C. Budar" },
-            { nombre: "Herramientas IA", responsable: "M. Matus" },
-            { nombre: "Implementación Middleware (Greenfield)", responsable: "M. Matus" },
-            { nombre: "Nuevo Core Bancario & Bca Empresarial", responsable: "M. Matus" }
+            { nombre: "PCI DSS", responsable: "C. Carreón", startMonth: 1, endMonth: 5 },
+            { nombre: "2o Factor Autentic. trx TDD no presenc.", responsable: "C. Carreón", startMonth: 2, endMonth: 6 },
+            { nombre: "Formulario FATCA / CRS", responsable: "C. Budar", destacado: "pink", startMonth: 1, endMonth: 4 },
+            { nombre: "Identificador Cliente Derechos ARCO", responsable: "C. Carreón", startMonth: 3, endMonth: 7 }
           ]
         }
       ]
