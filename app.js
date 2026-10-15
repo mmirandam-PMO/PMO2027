@@ -1,4 +1,4 @@
-// Colores destacados heredados de tu script original
+// Colores destacados heredados de tu script original adaptados a la nueva estructura
 const RED = '#C0392B', ORANGE = '#D35400', BLUE = '#2980B9';
 const highlight = {
   'Plataforma Banca Empresarial': RED, 'Banca Electrónica y Móvil': RED, 'Hub de pagos': RED,
@@ -21,14 +21,6 @@ function getProgEmoji(name) {
   return '📂';
 }
 
-function getProgClass(name) {
-  if (name.includes('Minorista')) return 'minorista';
-  if (name.includes('Regulatorios')) return 'regulatorios';
-  if (name.includes('Mayorista')) return 'mayorista';
-  if (name.includes('Hub')) return 'hub';
-  return 'carryover';
-}
-
 function buildProjectRows(proyectos, term, cleanNameFn = null) {
   let html = '';
   let matches = 0;
@@ -40,7 +32,7 @@ function buildProjectRows(proyectos, term, cleanNameFn = null) {
 
     if (nameMatch || ownerMatch) {
       matches++;
-      const isTbd = !q.responsable || q.responsable === 'TBD';
+      const isTbd = !q.responsable || q.responsable === 'TBD' || q.responsable === '--';
       html += `
         <div class="proj-row">
           <span class="proj-name" style="color: ${getProjectColor(q.nombre)}">${finalName}</span>
@@ -55,20 +47,21 @@ function buildProjectRows(proyectos, term, cleanNameFn = null) {
 
 function render() {
   const container = document.getElementById('dashboard');
+  if (!container) return;
   container.innerHTML = '';
+  
   const term = document.getElementById('search-input').value.toLowerCase().trim();
 
-  // Crear contenedores fijos para la distribución de 3 columnas originales
+  // 🚀 CREAMOS TRES COLUMNAS FÍSICAS PARA EVITAR DESFASES VERTICALES
   const col1 = document.createElement('div'); col1.className = 'column';
   const col2 = document.createElement('div'); col2.className = 'column';
   const col3 = document.createElement('div'); col3.className = 'column';
 
-  // Buscar programas en el objeto global pmoData (definido en data.js)
   const findProg = name => pmoData.programas.find(p => p.nombre === name);
 
   // --- RENDERS DE PROGRAMAS ---
   
-  // 1. Banca Minorista
+  // 1. Banca Minorista -> Columna 1
   const minor = findProg('Banca Minorista');
   if (minor) {
     let cardHtml = `<div class="card header-minorista"><div class="card-head"><h2>${getProgEmoji(minor.nombre)} ${minor.nombre}</h2><span class="badge">${minor.total_proyectos}</span></div>`;
@@ -82,7 +75,7 @@ function render() {
     col1.appendChild(document.createRange().createContextualFragment(cardHtml));
   }
 
-  // 2. Regulatorios
+  // 2. Regulatorios -> Columna 2
   const reg = findProg('Regulatorios');
   if (reg) {
     let cardHtml = `<div class="card header-regulatorios"><div class="card-head"><h2>${getProgEmoji(reg.nombre)} ${reg.nombre}</h2><span class="badge">${reg.total_proyectos}</span></div>`;
@@ -97,10 +90,10 @@ function render() {
     col2.appendChild(document.createRange().createContextualFragment(cardHtml));
   }
 
-  // 3. Banca Mayorista
+  // 3. Banca Mayorista -> Columna 1 (Cae justo abajo de Minorista)
   const may = findProg('Banca Mayorista');
   if (may) {
-    let cardHtml = `<div class="card header-mayorista"><div class="card-head"><h2>${getProgEmoji(may.nombre)} ${may.nombre}</h2></div>`;
+    let cardHtml = `<div class="card header-mayorista"><div class="card-head"><h2>${getProgEmoji(may.nombre)} ${may.nombre}</h2><span class="badge">${may.total_proyectos}</span></div>`;
     may.subprogramas.forEach(sp => {
       const cleanFn = (name) => name.startsWith('Proyectos ') ? '• ' + name : name.replace('Gpos Corporativos', 'Gpos Corp');
       const res = buildProjectRows(sp.proyectos, term, cleanFn);
@@ -113,7 +106,7 @@ function render() {
     col1.appendChild(document.createRange().createContextualFragment(cardHtml));
   }
 
-  // 4. Hub de Innovación
+  // 4. Hub de Innovación -> Columna 2 (Cae justo abajo de Regulatorios)
   const hub = findProg('Hub de Innovación');
   if (hub) {
     let cardHtml = `<div class="card header-hub"><div class="card-head"><h2>${getProgEmoji(hub.nombre)} ${hub.nombre}</h2><span class="badge">${hub.total_proyectos}</span></div>`;
@@ -127,7 +120,7 @@ function render() {
     col2.appendChild(document.createRange().createContextualFragment(cardHtml));
   }
 
-  // 5. Carry-over 2026
+  // 5. Carry-over 2026 -> Columna 3 (Ocupa toda la tercera columna limpiamente)
   const co = findProg('Carry-over 2026');
   if (co) {
     let cardHtml = `<div class="card header-carryover"><div class="card-head"><h2>${getProgEmoji(co.nombre)} ${co.nombre}</h2><span class="badge">${co.total_proyectos}</span></div>`;
@@ -141,14 +134,11 @@ function render() {
     col3.appendChild(document.createRange().createContextualFragment(cardHtml));
   }
 
-  // Inyectar las columnas armadas al Grid global
+  // Inyectar las tres columnas ordenadas al contenedor
   container.appendChild(col1);
   container.appendChild(col2);
   container.appendChild(col3);
 }
 
-// Escuchar cambios en la barra de búsqueda en tiempo real
 document.getElementById('search-input').addEventListener('input', render);
-
-// Ejecutar primer renderizado al cargar la página
 window.addEventListener('DOMContentLoaded', render);
