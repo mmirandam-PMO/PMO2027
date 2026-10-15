@@ -4,36 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio de Proyectos 2027 · PMO</title>
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://googleapis.com" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Pequeño ajuste para acomodar el botón al lado del texto */
+    .brand-header-flex {
+      display: flex;
+      align-items: flex-end;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-go-roadmap {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      margin-bottom: 2px;
+      transition: all 0.2s ease;
+    }
+    .btn-go-roadmap:hover {
+      background: #ffffff;
+      color: #1B355D;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Encabezado Principal -->
   <header class="masthead">
     <div class="wrap header-inner">
       <div class="brand">
-        <h1>Portafolio de Proyectos 2027</h1>
-	<p class="brand-top">3 Programas &nbsp;•&nbsp; 38 Proyectos</p>
-              </div>
+        <span class="brand-top">Portafolio de Proyectos 2027 · PMO</span>
+        <div class="brand-header-flex">
+          <h1>Tablero de Control Operativo</h1>
+          <!-- Icono / Botón ejecutivo al lado de los títulos -->
+          <a href="roadmap.html" class="btn-go-roadmap">
+            🗺️ Ver Roadmap
+          </a>
+        </div>
+      </div>
       <div class="search-area">
-        <input type="text" id="search-input" placeholder="🔍 Buscar...">
+        <input type="text" id="search-input" placeholder="🔍 Buscar proyecto o responsable...">
       </div>
     </div>
   </header>
 
-  <!-- Tablero Operativo en 3 Columnas Fijas para evitar desfases -->
   <main class="wrap">
-    <div class="dashboard-grid" id="dashboard">
+    <div class="dashboard-grid">
       <div class="column" id="col-1"></div>
       <div class="column" id="col-2"></div>
       <div class="column" id="col-3"></div>
     </div>
   </main>
 
-  <!-- Insumo de datos y motor dinámico -->
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
