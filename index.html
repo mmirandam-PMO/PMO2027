@@ -3,32 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reporte Ejecutivo de PMO</title>
+  <title>Portafolio de Proyectos 2027 · Reporte Ejecutivo PMO</title>
+  <meta name="description" content="Tablero interactivo de control operativo de la PMO: seguimiento de programas, estatus de proyectos y responsables.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1B355D">
+  
+  <!-- Tipografías de Google Fonts: Inter para la UI y Merriweather para títulos ejecutivos -->
   <link rel="preconnect" href="https://googleapis.com">
   <link rel="preconnect" href="https://gstatic.com" crossorigin>
   <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Enlace al archivo de estilos -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!-- Encabezado Principal con Gradiente Corporativo -->
   <header class="masthead">
     <div class="wrap header-inner">
       <div class="brand">
-        <p class="brand-top">Portafolio de Proyectos</p>
-        <h1>Reporte Ejecutivo de PMO</h1>
+        <p class="brand-top" id="pmo-global-stats">3 Programas &nbsp;•&nbsp; 38 Proyectos</p>
+        <h1 id="pmo-main-title">Portafolio de Proyectos 2027</h1>
       </div>
       <div class="search-area">
-        <input type="text" id="search-input" placeholder="🔍 Buscar proyecto o responsable...">
+        <div class="search-input-wrapper">
+          <input type="text" id="search-input" placeholder="🔍 Buscar proyecto o responsable..." autocomplete="off">
+        </div>
       </div>
     </div>
   </header>
 
+  <!-- Sección Destacada de Indicadores Clave (KPIs) -->
+  <section class="wrap">
+    <div class="kpis-grid">
+      <div class="kpi blue">
+        <span class="kpi-label">Focos Estratégicos</span>
+        <span class="kpi-val">3</span>
+        <span class="kpi-sub">Programas Core</span>
+      </div>
+      <div class="kpi teal">
+        <span class="kpi-label">Volumen Operativo</span>
+        <span class="kpi-val">38</span>
+        <span class="kpi-sub">Proyectos Activos</span>
+      </div>
+      <div class="kpi orange">
+        <span class="kpi-label">Esfuerzo Transversal</span>
+        <span class="kpi-val">13</span>
+        <span class="kpi-sub">Proyectos en Carry-over</span>
+      </div>
+      <div class="kpi gold">
+        <span class="kpi-label">Estatus Crítico</span>
+        <span class="kpi-val" id="tbd-counter">0</span>
+        <span class="kpi-sub">Por asignar / TBD</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tablero Operativo Principal -->
   <main class="wrap">
-    <!-- El tablero interactivo de 3 columnas -->
-    <div class="dashboard-grid" id="dashboard"></div>
+    <noscript>
+      <div style="background: #FFF5F5; color: #C0392B; padding: 16px; border-radius: 8px; margin-bottom: 24px; font-weight: 600;">
+        ⚠️ Este tablero ejecutivo requiere JavaScript activado para procesar los filtros y renderizar el portafolio dinámicamente.
+      </div>
+    </noscript>
+
+    <!-- Estructura contenedora del Grid de 3 Columnas Fijas para evitar desfases -->
+    <div class="dashboard-grid" id="dashboard">
+      
+      <!-- Columna 1: Aloja Banca Minorista y Banca Mayorista -->
+      <div class="column" id="col-1"></div>
+      
+      <!-- Columna 2: Aloja Regulatorios y Hub de Innovación -->
+      <div class="column" id="col-2"></div>
+      
+      <!-- Columna 3: Aloja Carry-over 2026 de forma limpia -->
+      <div class="column" id="col-3"></div>
+      
+    </div>
   </main>
 
-  <!-- IMPORTANTÍSIMO: Cargamos primero el insumo de datos y luego el ejecutor -->
+  <!-- Aviso de error en caso de que falte la base de datos -->
+  <div class="wrap" id="error-message" hidden>
+    <p style="background: #FFF5F5; color: #C0392B; padding: 16px; border-radius: 8px; text-align: center; font-weight: 500;">
+      ❌ No se pudo cargar el archivo <code>data.js</code>. Asegúrate de que esté en la misma carpeta que este archivo HTML.
+    </p>
+  </div>
+
+  <!-- Insumo de datos y lógica del Dashboard -->
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
