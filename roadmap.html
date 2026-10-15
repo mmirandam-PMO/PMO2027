@@ -3,159 +3,209 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Roadmap 2027 · PMO</title>
+  <title>Portafolio de Proyectos 2027 · Roadmap</title>
   <link href="https://googleapis.com" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
   <style>
-    /* Estilos independientes para un flujo limpio y pulido sin efecto Excel */
-    .brand-flex-layout-rm { display: flex; align-items: flex-end; gap: 18px; flex-wrap: wrap; }
-    .btn-back-dashboard {
+    /* Estilos encapsulados para sobreescribir estilos globales y evitar el efecto Excel */
+    :root {
+      --navy-institucional: #1B355D;
+      --bg-gris-limpio: #F4F6F9;
+      --white: #ffffff;
+      --border-cards: #E5E9F0;
+      --text-dark: #1E293B;
+      --text-muted: #64748B;
+      --shadow-smooth: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #F4F6F9 !important; color: var(--text-dark); min-height: 100vh; padding-bottom: 40px; }
+    .wrap-rm { max-width: 1440px; margin: 0 auto; padding: 0 34px; }
+
+    /* Cabecera idéntica a tu Imagen 1 */
+    header.masthead-rm {
+      background: #ffffff !important;
+      padding: 24px 0 12px 0;
+      box-shadow: none !important;
+      border-bottom: none !important;
+      position: relative !important;
+    }
+    .header-inner-rm { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+
+    .brand-block-rm { display: flex; flex-direction: column; }
+    .main-title-rm { font-size: 26px; font-weight: 700; color: #1B355D; letter-spacing: -0.5px; }
+    .sub-meta-rm { font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 4px; }
+    .meta-link-rm { color: #1B355D; text-decoration: underline; font-weight: 600; }
+
+    /* Buscador Minimalista al extremo derecho */
+    .search-area-rm input { 
+      border: 1px solid #CBD5E1 !important; 
+      border-radius: 8px !important; 
+      padding: 10px 16px !important; 
+      width: 260px !important; 
+      font-size: 14px !important; 
+      outline: none !important; 
+      background: var(--white) !important;
+      color: var(--text-dark) !important;
+    }
+
+    /* Pestañas Ovaladas de Navegación del centro (Imagen 1) */
+    .navigation-tabs-rm {
       display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255, 255, 255, 0.15);
-      color: #ffffff;
-      padding: 5px 14px;
-      border-radius: 20px;
-      font-size: 12px;
+      background: #E2ECF9;
+      padding: 4px;
+      border-radius: 30px;
+    }
+    .tab-link-rm {
+      padding: 8px 24px;
+      font-size: 14px;
       font-weight: 600;
+      color: #1B355D;
       text-decoration: none;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      margin-bottom: 2px;
+      border-radius: 25px;
       transition: all 0.2s ease;
     }
-    .btn-back-dashboard:hover { background: #ffffff; color: #1B355D; }
+    .tab-link-rm.active {
+      background: #6C9CE4;
+      color: var(--white);
+    }
 
-    .roadmap-container-rm { background: transparent; margin-top: 25px; }
-    .roadmap-table-rm { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
+    /* Tabla de Roadmap limpia sin bordes rígidos de celdas */
+    .roadmap-container-rm { background: transparent; margin-top: 25px; overflow-x: auto; }
+    .roadmap-table-rm { width: 100%; border-collapse: separate; border-spacing: 0 10px; min-width: 1000px; }
     
-    .roadmap-table-rm th { color: #6B7280; font-size: 12px; font-weight: 600; padding: 8px 16px; text-align: center; text-transform: uppercase; border: none; }
-    .roadmap-table-rm th.meta-col-rm { text-align: left; }
+    /* Encabezado azul oscuro para los trimestres (Como tu Imagen 1) */
+    .roadmap-table-rm th { color: var(--text-muted); font-size: 12px; font-weight: 600; padding: 12px 16px; text-align: left; text-transform: uppercase; }
+    .roadmap-table-rm th.q-header-rm { background: #1B355D; color: var(--white); text-align: center; font-size: 13px; font-weight: 600; }
+    .roadmap-table-rm th.q-header-rm:first-of-type { border-top-left-radius: 6px; border-bottom-left-radius: 6px; }
+    .roadmap-table-rm th.q-header-rm:last-of-type { border-top-right-radius: 6px; border-bottom-right-radius: 6px; }
 
-    .roadmap-table-rm tr { background: #ffffff; box-shadow: 0 4px 16px rgba(27, 42, 74, 0.04); }
-    .roadmap-table-rm td { padding: 14px 16px; border-top: 1px solid #E1E4E8; border-bottom: 1px solid #E1E4E8; font-size: 13.5px; background: #ffffff; }
+    /* Filas estilizadas como tarjetas individuales independientes */
+    .roadmap-table-rm tr.proj-row-rm { background: var(--white); box-shadow: var(--shadow-smooth); }
+    .roadmap-table-rm tr.proj-row-rm td { padding: 16px; border-top: 1px solid var(--border-cards); border-bottom: 1px solid var(--border-cards); font-size: 14px; background: var(--white); }
     
-    .roadmap-table-rm td:first-child { border-left: 1px solid #E1E4E8; border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
-    .roadmap-table-rm td:last-child { border-right: 1px solid #E1E4E8; border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
+    .roadmap-table-rm tr.proj-row-rm td:first-child { border-left: 1px solid var(--border-cards); border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
+    .roadmap-table-rm tr.proj-row-rm td:last-child { border-right: 1px solid var(--border-cards); border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
 
-    .proj-cell-title-rm { font-weight: 600; color: #24292F; }
-    .proj-cell-owner-rm { color: #6B7280; font-weight: 500; font-size: 12.5px; white-space: nowrap; max-width: 140px; overflow: hidden; text-overflow: ellipsis; }
+    .proj-cell-title-rm { font-weight: 600; color: #1B355D; width: 25%; }
+    .proj-cell-owner-rm { color: var(--text-muted); font-weight: 500; width: 15%; }
 
-    .classification-tag-rm {
+    /* Estructura del contenedor del Timeline de barras */
+    .timeline-container-cell-rm { padding: 0 20px !important; position: relative; width: 60%; }
+    .timeline-wrapper-rm { position: relative; height: 100%; min-height: 24px; width: 100%; background: transparent; }
+    
+    /* La barra elegante azul claro redondeada */
+    .timeline-bar-rm { 
+      position: absolute; 
+      top: 50%; 
+      transform: translateY(-50%); 
+      height: 14px; 
+      background: #A4C4F9; 
+      border-radius: 20px; 
+    }
+
+    /* Etiquetas de Clasificación opcionales */
+    .class-badge-rm {
       display: inline-block;
-      padding: 4px 10px;
-      border-radius: 6px;
+      padding: 3px 8px;
+      border-radius: 4px;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
-      white-space: nowrap;
+      margin-bottom: 4px;
     }
-    .tag-minorista { background: #EBF5FB; color: #2980B9; }
-    .tag-mayorista { background: #FEF9E7; color: #D35400; }
-    .tag-transversales { background: #E8F8F5; color: #16A085; }
-    .tag-nuevos { background: #EAF2FC; color: #1B355D; }
-    .tag-carryover { background: #F4F6F7; color: #7F8C8D; }
-
-    /* Estilo del timeline limpio sin celdas rígidas */
-    .timeline-container-cell-rm { padding: 0 20px !important; position: relative; width: 45%; }
-    .timeline-wrapper-rm { position: relative; height: 14px; width: 100%; background: #F3F4F6; border-radius: 20px; overflow: hidden; }
-    .timeline-bar-rm { position: absolute; top: 0; bottom: 0; background: #75A4EC; border-radius: 20px; }
+    .badge-minorista { background: #EBF5FB; color: #2980B9; }
+    .badge-mayorista { background: #FEF9E7; color: #D35400; }
+    .badge-default { background: #F1F5F9; color: #475569; }
   </style>
 </head>
 <body>
 
-  <!-- Cabecera Institucional con el Título Modificado Correctamente -->
-  <header class="masthead">
-    <div class="wrap header-inner">
-      <div class="brand">
-        <span class="brand-top">PORTAFOLIO DE PROYECTOS 2027 · PMO</span>
-        <div class="brand-flex-layout-rm">
-          <!-- Título principal corregido -->
-          <h1>Roadmap 2027</h1>
-          <!-- Botón ovalado para regresar al index -->
-          <a href="index.html" class="btn-back-dashboard">
-            📋 Ver Tablero
-          </a>
+  <!-- Encabezado Limpio Blanco Corporativo -->
+  <header class="masthead-rm">
+    <div class="wrap-rm header-inner-rm">
+      <div class="brand-block-rm">
+        <h1 class="main-title-rm">Portafolio de Proyectos 2027</h1>
+        <div class="sub-meta-rm">
+          <a href="#" class="meta-link-rm">3 Programas</a> · <a href="#" class="meta-link-rm">38 Proyectos</a>
         </div>
       </div>
-      <div class="search-area">
-        <input type="text" id="search-input-rm" placeholder="🔍 Buscar proyecto...">
+      
+      <!-- Pestañas ovaladas de control -->
+      <div class="navigation-tabs-rm">
+        <a href="index.html" class="tab-link-rm">Tablero</a>
+        <a href="roadmap.html" class="tab-link-rm active">Resumen semanal</a>
+      </div>
+
+      <div class="search-area-rm">
+        <input type="text" id="search-input-rm" placeholder="Buscar">
       </div>
     </div>
   </header>
 
-  <main class="wrap">
+  <main class="wrap-rm">
     <div class="roadmap-container-rm">
       <table class="roadmap-table-rm">
         <thead>
           <tr>
-            <th class="meta-col-rm" style="width: 15%;">Clasificación</th>
-            <th class="meta-col-rm" style="width: 28%;">Proyecto</th>
-            <th class="meta-col-rm" style="width: 12%;">Responsable</th>
-            <th style="width: 11.25%;">Q1 2027</th>
-            <th style="width: 11.25%;">Q2 2027</th>
-            <th style="width: 11.25%;">Q3 2027</th>
-            <th style="width: 11.25%;">Q4 2027</th>
+            <th style="width: 25%;">Proyecto</th>
+            <th style="width: 15%;">Responsable</th>
+            <th class="q-header-rm" style="width: 15%;">Q1 2027</th>
+            <th class="q-header-rm" style="width: 15%;">Q2 2027</th>
+            <th class="q-header-rm" style="width: 15%;">Q3 2027</th>
+            <th class="q-header-rm" style="width: 15%;">Q4 2027</th>
           </tr>
         </thead>
         <tbody id="roadmap-tbody-rm">
-          <!-- Renderizado dinámico inmediato -->
+          <!-- Renderizado dinámico seguro sin romper por celdas vacías -->
         </tbody>
       </table>
     </div>
   </main>
 
   <script>
-    // Datos limpios estructurados desde tu XLS/CSV original
+    // Datos maestros sincronizados desde tu layout de Excel (xls)
     const excelSourceData = [
-      { clasif: "Banca Minorista", proj: "Aplicación de inversiones MVP 2", owner: "S. Olivero", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Banca Minorista", proj: "Rediseño Proceso de Originación MVP 2", owner: "S. Olivero", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Banca Minorista", proj: "Copiloto MVP 2", owner: "S. Olivero", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Banca Minorista", proj: "Créditos Asociados a Nómina (CAN)", owner: "S. Olivero", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Banca Minorista", proj: "Cash Loans", owner: "S. Olivero", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Banca Minorista", proj: "Personalización de ofertas", owner: "S. Olivero", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Banca Mayorista", proj: "Plataforma Banca Empresarial (Fase 1) - PyME Empresa Mediana y Grupos Corporativos", owner: "R.Galindo, R. Vázquez, B.Flores", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Banca Mayorista", proj: "Banca Electrónica Móvil", owner: "--", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Banca Mayorista", proj: "Dispersión de Nóminas", owner: "--", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Banca Mayorista", proj: "Hub de pagos", owner: "--", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Banca Mayorista", proj: "Liquidez (Cash Management)", owner: "--", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Banca Mayorista", proj: "Créditos para Empresas", owner: "--", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Banca Mayorista", proj: "Otros", owner: "--", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Banca Mayorista", proj: "Banco recaudador", owner: "R. Vázquez", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Transversales", proj: "Modelos de riesgo, KYC y monitoreo", owner: "C. Carreón", start: "", end: "" },
-      { clasif: "Transversales", proj: "Data Analystics", owner: "M. Matus", start: "", end: "" },
-      { clasif: "Banca Minorista", proj: "Aplicación de inversiones MVP 1", owner: "S. Olivero", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Banca Minorista", proj: "Rediseño Proceso de Originación MVP 1", owner: "S. Olivero", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Banca Minorista", proj: "Copiloto MVP 1", owner: "S. Olivero", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Transversales", proj: "Implementación de TEF", owner: "A. Nava", start: "", end: "" },
-      { clasif: "Transversales", proj: "Tokenización", owner: "A. Nava", start: "", end: "" },
-      { clasif: "Nuevos proyectos", proj: "CRM Objetivo", owner: "M. Matus", start: "2027-01-01", end: "2027-12-31" },
-      { clasif: "Nuevos proyectos", proj: "Content Manager Objetivo (Filenet)", owner: "M. Matus", start: "2027-01-01", end: "2027-01-31" },
-      { clasif: "Nuevos proyectos", proj: "Upgrade S4 HANNA (E R P)", owner: "C. Budar", start: "", end: "" },
-      { clasif: "Nuevos proyectos", proj: "Herramientas IA", owner: "M. Matus", start: "", end: "" },
-      { clasif: "Nuevos proyectos", proj: "Implementación Middleware (Greenfield)", owner: "M. Matus", start: "2027-01-01", end: "2027-01-31" },
-      { clasif: "Nuevos proyectos", proj: "Nuevo Core Bancario & Bca Empresarial", owner: "M. Matus", start: "", end: "" },
-      { clasif: "Carryover 2026", proj: "Robustecimiento BKAYA 2026", owner: "M. Matus", start: "2027-01-01", end: "2027-01-31" },
-      { clasif: "Carryover 2026", proj: "PCI DSS", owner: "C. Carreón", start: "", end: "" },
-      { clasif: "Carryover 2026", proj: "Controles de Integridad de Software Core Bancario", owner: "C. Carreón", start: "", end: "" },
-      { clasif: "Carryover 2026", proj: "2FA en transacciones con TDD no presenciales", owner: "C. Carreón", start: "", end: "" },
-      { clasif: "Carryover 2026", proj: "Robustecimiento de controles de seguridad", owner: "C. Carreón", start: "", end: "" },
-      { clasif: "Carryover 2026", proj: "FATCA / CRS", owner: "C. Budar", start: "", end: "" },
-      { clasif: "Carryover 2026", proj: "Identificador Cliente Derechos ARCO", owner: "C. Carreón", start: "", end: "" },
-      { clasif: "Nuevos proyectos", proj: "Reportes Regulatorios", owner: "C. Budar", start: "", end: "" },
-      { clasif: "Carryover 2026", proj: "Migración Campo c63 al c57", owner: "A. Nava", start: "", end: "" },
-      { clasif: "Carryover 2026", proj: "Automatización proceso trxs POS", owner: "A. Nava", start: "", end: "" },
-      { clasif: "Carryover 2026", proj: "Automatización de procesos (3 sows)", owner: "A. Nava", start: "", end: "" },
-      { clasif: "Carryover 2026", proj: "Reingeniería IVR", owner: "A. Nava", start: "", end: "" },
-      { clasif: "Nuevos proyectos", proj: "Nueva Plataforma PLD", owner: "C. Carreón", start: "", end: "" }
+      { clasif: "Banca Minorista", proj: "App de Inversiones MVP 2", owner: "S. Olivero", start: "2027-03-01", end: "2027-08-31" },
+      { clasif: "Banca Minorista", proj: "Rediseño Proceso de Originación MVP 2", owner: "S. Olivero", start: "2027-04-01", end: "2027-10-31" },
+      { clasif: "Banca Minorista", proj: "Copiloto MVP 2", owner: "S. Olivero", start: "2027-03-01", end: "2027-07-31" },
+      { clasif: "Banca Minorista", proj: "Seguros RANMA", owner: "S. Olivero", start: "2027-05-01", end: "2027-10-31" },
+      { clasif: "Banca Minorista", proj: "Créditos Asociados a Nómina (CAN)", owner: "S. Olivero", start: "2027-03-01", end: "2027-06-31" },
+      { clasif: "Banca Minorista", proj: "Cash Loans", owner: "S. Olivero", start: "2027-04-01", end: "2027-09-31" },
+      { clasif: "Banca Minorista", proj: "Personalización de Ofertas", owner: "S. Olivero", start: "2027-06-01", end: "2027-11-31" },
+      { clasif: "Banca Minorista", proj: "Cuenta Rocket", owner: "S. Olivero", start: "2027-05-01", end: "2027-09-31" },
+      { clasif: "Carryover 2026", proj: "PCI DSS", owner: "C. Carreón", start: "2027-01-01", end: "2027-05-31" },
+      { clasif: "Carryover 2026", proj: "2o Factor Autentic. trx TDD no presenc.", owner: "C. Carreón", start: "2027-02-01", end: "2027-06-31" },
+      { clasif: "Carryover 2026", proj: "Formulario FATCA / CRS", owner: "C. Budar", start: "2027-01-01", end: "2027-04-30" },
+      { clasif: "Carryover 2026", proj: "Identificador Cliente Derechos ARCO", owner: "C. Carreón", start: "2027-03-01", end: "2027-07-31" },
+      { clasif: "Banca Mayorista", proj: "Plataforma Banca Empresarial (Fase 1)", owner: "R. Galindo / B. Flores", start: "", end: "" },
+      { clasif: "Banca Mayorista", proj: "Banca Electrónica y Móvil", owner: "--", start: "", end: "" },
+      { clasif: "Banca Mayorista", proj: "Hub de pagos", owner: "--", start: "", end: "" }
     ];
 
-    function getTagStyle(cName) {
-      if (cName.includes('Minorista')) return 'tag-minorista';
-      if (cName.includes('Mayorista')) return 'tag-mayorista';
-      if (cName.includes('Transversales')) return 'tag-transversales';
-      if (cName.includes('Nuevos')) return 'tag-nuevos';
-      return 'tag-carryover';
+    function getBadgeClass(clasif) {
+      if (clasif.includes('Minorista')) return 'badge-minorista';
+      if (clasif.includes('Mayorista')) return 'badge-mayorista';
+      return 'badge-default';
     }
 
-    function drawTable(term = '') {
+    function renderRoadmap(term = '') {
+      const tbody = document.getElementById('roadmap-tbody-rm');
+      let html = '';
+
+      excelSourceData.forEach(row => {
+        // Filtro de búsqueda por proyecto o responsable
+        if (term && !row.proj.toLowerCase().includes(term) && !row.owner.toLowerCase().includes(term)) return;
+
+        let barHtml = '';
+
+        // Validación segura de fechas para evitar bloqueos por campos vacíos
+        if (row.start && row.end && row.start.includes('-')) {
+          const startParts = row.start.split('-');
+          const endParts = row.end.split('-');
+          
+          const startMonth = parseInt(startParts[1], 10);
+          const endMonth = parseInt(endParts[1], 10);
+
+          if (!isNaN(startMonth) && !isNaN(endMonth)) {
+            // Conversión proporcional a la grilla de los 4 Qs (12 meses totales = 100%)
+            const leftPercent = ((startMonth - 1) * 8.333);
