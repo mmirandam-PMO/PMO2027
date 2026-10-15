@@ -1,0 +1,41 @@
+Clasificación,Proyecto,Responsable,Fecha de inicio,Fecha de fin
+Banca Minorista,Aplicación de inversiones MVP 2,S. Olivero,2027-01-01,2027-12-31
+Banca Minorista,Rediseño Proceso de Originación MVP 2 ,S. Olivero,2027-01-01,2027-12-31
+Banca Minorista,Copiloto MVP 2,S. Olivero,2027-01-01,2027-12-31
+Banca Minorista,Créditos Asociados a Nómina (CAN),S. Olivero,2027-01-01,2027-12-31
+Banca Minorista,Cash Loans,S. Olivero,2027-01-01,2027-12-31
+Banca Minorista,Personalización de ofertas,S. Olivero,2027-01-01,2027-12-31
+Banca Mayorista,Plataforma Banca Empresarial (Fase 1) - PyME Empresa Mediana y Grupos Corporativos,"R.Galindo, R. Vázquez, B.Flores",2027-01-01,2027-12-31
+Banca Mayorista,Banca Electrónica Móvil,,2027-01-01,2027-12-31
+Banca Mayorista,Dispersión de Nóminas,,2027-01-01,2027-12-31
+Banca Mayorista,Hub de pagos,,2027-01-01,2027-12-31
+Banca Mayorista,Liquidez (Cash Management),,,2027-01-01,2027-12-31
+Banca Mayorista,Créditos para Empresas,,2027-01-01,2027-12-31
+Banca Mayorista,Otros,,2027-01-01,2027-12-31
+Banca Mayorista,Banco recaudador,R. Vázquez,2027-01-01,2027-12-31
+Transversales,"Modelos de riesgo, KYC y monitoreo",C. Carreón,,
+Transversales,Data Analystics,M. Matus,,
+Banca Minorista,Aplicación de inversiones MVP 1,S. Olivero,2027-01-01,2027-12-31
+Banca Minorista,Rediseño Proceso de Originación MVP 1 ,S. Olivero,2027-01-01,2027-12-31
+Banca Minorista,Copiloto MVP 1,S. Olivero,2027-01-01,2027-12-31
+Transversales,Implementación de TEF,A. Nava,,
+Transversales,Tokenización,A. Nava,,
+Nuevos proyectos,CRM Objetivo,M. Matus,2027-01-01,2027-12-31
+Nuevos proyectos,Content Manager Objetivo (Filenet),M. Matus,2027-01-01,2027-01-31
+Nuevos proyectos,Upgrade S4 HANNA (E R P),C. Budar,,
+Nuevos proyectos,Herramientas IA,M. Matus,,
+Nuevos proyectos,Implementación Middleware (Greenfield),M. Matus,2027-01-01,2027-01-31
+Nuevos proyectos,Nuevo Core Bancario & Bca Empresarial,M. Matus,,
+Carryover 2026,Robustecimiento BKAYA 2026,M. Matus,2027-01-01,2027-01-31
+Carryover 2026,PCI DSS,C. Carreón,,
+Carryover 2026,Controles de Integridad de Software Core Bancario,C. Carreón,,
+Carryover 2026,2FA en transacciones con TDD no presenciales,C. Carreón,,
+Carryover 2026,Robustecimiento de controles de seguridad,C. Carreón,,
+Carryover 2026,FATCA / CRS,C. Budar,,
+Carryover 2026,Identificador Cliente Derechos ARCO,C. Carreón,,
+Nuevos proyectos,Reportes Regulatorios,C. Budar,,
+Carryover 2026,Migración Campo c63 al c57,A. Nava,,
+Carryover 2026,Automatización proceso trxs POS,A. Nava,,
+Carryover 2026,Automatización de procesos (3 sows),A. Nava,,
+Carryover 2026,Reingeniería IVR,A. Nava,,
+Nuevos proyectos,Nueva Plataforma PLD,C. Carreón,,
