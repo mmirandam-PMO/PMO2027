@@ -2,9 +2,111 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio de Proyectos 2027 · PMO</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Merriweather:wght@800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1B355D;
+      --bg-main: #F7F8FA;
+      --white: #ffffff;
+      --border: #E1E4E8;
+      --text-dark: #24292F;
+      --text-muted: #6B7280;
+      --shadow: 0 4px 16px rgba(27, 42, 74, 0.08);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg-main); color: var(--text-dark); min-height: 100vh; }
+    .wrap { max-width: 1440px; margin: 0 auto; padding: 0 34px; }
+
+    header.masthead {
+      background: linear-gradient(90deg, var(--navy) 0%, #1B4E5A 100%);
+      color: var(--white);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 2px 14px rgba(27,42,74,.28);
+      margin-bottom: 28px;
+    }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
+    .brand-top { font-size: 11px; text-transform: uppercase; font-weight: 700; color: #7DACE2; letter-spacing: .5px; }
+    .brand h1 { font-family: 'Merriweather', serif; font-size: 22px; font-weight: 900; display: flex; align-items: center; gap: 16px; }
+
+    /* BOTÓN OVALADO TRASLÚCIDO DE TU CAPTURA */
+    .btn-view-roadmap {
+      background-color: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 13.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-view-roadmap:hover {
+      background-color: rgba(255, 255, 255, 0.22);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .search-area input { 
+      background: rgba(255,255,255,0.15); 
+      color: var(--white); 
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px;
+      padding: 8px 16px; 
+      width: 280px; 
+      font-size: 13px; 
+      outline: none; 
+    }
+    .search-area input::placeholder { color: rgba(255,255,255,0.7); }
+    .search-area input:focus { background: var(--white); color: var(--text-dark); }
+
+    .dashboard-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+    @media (max-width: 1024px) { .dashboard-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .dashboard-grid { grid-template-columns: 1fr; } }
+
+    .column { display: flex; flex-direction: column; gap: 24px; }
+    .card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; position: relative; }
+    .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; z-index: 10; }
+
+    .header-minorista::before { background: linear-gradient(90deg, #4A90E2 0%, #2980B9 100%); }
+    .header-regulatorios::before { background: linear-gradient(90deg, #A04000 0%, #D35400 100%); }
+    .header-mayorista::before { background: linear-gradient(90deg, #D35400 0%, #F39C12 100%); }
+    .header-hub::before { background: linear-gradient(90deg, #BDC3C7 0%, #7F8C8D 100%); }
+    .header-carryover::before { background: linear-gradient(90deg, #1F3A60 0%, #34495E 100%); }
+
+    .card-head { padding: 18px 20px 14px; background: #FAFBFC; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .card-head h2 { font-family: 'Merriweather', serif; font-size: 20px; font-weight: 800; color: var(--navy); }
+    .badge { background: rgba(27,42,74,0.08); color: var(--navy); padding: 4px 10px; border-radius: 20px; font-size: 13px; font-weight: 700; }
+
+    .section-area { padding: 14px 18px; border-bottom: 1px solid #FAFBFD; }
+    .section-area:last-child { border-bottom: none; }
+    .section-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .section-title { font-size: 13.5px; font-weight: 700; color: var(--navy); }
+    .subprogram-leads { font-size: 12px; font-weight: 700; color: #00788A; margin-bottom: 8px; }
+
+    .subprogram-block-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .subprogram-card { background: #FAFBFD; border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+    .subprogram-title { font-size: 13px; font-weight: 700; color: var(--navy); border-bottom: 1px dashed var(--border); padding-bottom: 4px; margin-bottom: 8px; }
+
+    .proj-list { display: flex; flex-direction: column; gap: 6px; }
+    .proj-row { background: #F5F7FA; padding: 10px 12px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; transition: .15s; }
+    .proj-row:hover { transform: translateX(3px); background: #EDF1F5; }
+    .proj-name { font-weight: 500; line-height: 1.4; padding-right: 8px; }
+    .proj-owner { font-size: 11px; font-weight: 700; background: #E2E8F0; color: #4A5568; padding: 2px 6px; border-radius: 4px; white-space: nowrap; }
+    .proj-owner.tbd { background: rgba(232,83,1,0.1); color: #E85301; }
+  </style>
 </head>
 <body>
 
@@ -12,11 +114,11 @@
     <div class="wrap header-inner">
       <div class="brand">
         <span class="brand-top">Portafolio de Proyectos 2027 · PMO</span>
-        <h1>Tablero de Control Operativo</h1>
-      </div>
-      <!-- Cambio solicitado: de Tablero a Proyecto -->
-      <div class="nav-area">
-        <a href="#" class="nav-button" style="color: white; text-decoration: none; font-weight: 700; font-size: 14px;">⬅ Regresar al Proyecto</a>
+        <h1>
+          <!-- Botón ovalado transparente que enlaza al roadmap -->
+          <a href="roadmap.html" class="btn-view-roadmap">📊 Ver Roadmap</a>
+          Tablero Principal
+        </h1>
       </div>
       <div class="search-area">
         <input type="text" id="search-input" placeholder="Buscar...">
@@ -30,18 +132,130 @@
       <div class="column" id="col-2"></div>
       <div class="column" id="col-3"></div>
     </div>
-
-    <!-- Sección de Timeline con el fondo gris configurado por CSS -->
-    <div class="timeline-container">
-      <h3 style="margin-bottom: 10px; color: var(--navy);">Línea de Tiempo del Portafolio (Timeline)</h3>
-      <div class="roadmap-timeline">
-        <!-- Los bloques de render dinámico del timeline van aquí -->
-        <p style="font-size: 13px; color: var(--text-dark);">Visualización del Roadmap estructurado por Q1, Q2, Q3 y Q4 2027.</p>
-      </div>
-    </div>
   </main>
 
-  <script src="roadmap-data.js"></script>
-  <script src="app-render.js"></script>
+  <script>
+    const pmoData = {
+      programas: [
+        {
+          nombre: "Banca Minorista",
+          total_proyectos: 8,
+          categorias: [
+            {
+              tipo: "Nuevos proyectos · 8",
+              proyectos: [
+                { nombre: "App de Inversiones MVP 2", responsable: "S. Olivero" },
+                { nombre: "Rediseño Proceso de Originación MVP 2", responsable: "S. Olivero" },
+                { nombre: "Copiloto MVP 2", responsable: "S. Olivero" },
+                { nombre: "Seguros RANMA", responsable: "S. Olivero" },
+                { nombre: "Créditos Asociados a Nómina (CAN)", responsable: "S. Olivero" },
+                { nombre: "Cash Loans", responsable: "S. Olivero" },
+                { nombre: "Personalización de Ofertas", responsable: "S. Olivero" }
+              ]
+            }
+          ]
+        },
+        {
+          nombre: "Regulatorios",
+          total_proyectos: 7,
+          categorias: [
+            {
+              tipo: "Carryover 2026 · 4",
+              proyectos: [
+                { nombre: "PCI DSS", responsable: "C. Carreón" },
+                { nombre: "2o Factor Autentic. trx TDD no presenc.", responsable: "C. Carreón" },
+                { nombre: "Formulario FATCA / CRS", responsable: "C. Budar" }
+              ]
+            }
+          ]
+        },
+        {
+          nombre: "Banca Mayorista",
+          total_proyectos: 8,
+          subprogramas: [
+            { 
+              nombre: "Banca de Empresas · Programa", 
+              responsables: ["R. Galindo", "B. Flores"], 
+              proyectos: [
+                { nombre: "Plataforma Banca Empresarial Fase 1 (PyME, Empresa Mediana)", responsable: "R. Galindo / B. Flores" }
+              ] 
+            }
+          ],
+          transversales: [
+            {
+              tipo: "Transversales · 4",
+              proyectos: [
+                { nombre: "Banca Electrónica y Móvil", responsable: "--" }, 
+                { nombre: "Hub de pagos", responsable: "--" }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+
+    function getProjectColor(q) { return '#24292F'; }
+    function getProgEmoji(name) {
+      if (name.includes('Minorista')) return '🔷';
+      if (name.includes('Mayorista')) return '🔶';
+      return '📂';
+    }
+
+    function buildProjectRows(proyectos, term) {
+      let html = '';
+      let matches = 0;
+      proyectos.forEach(q => {
+        if (q.nombre.toLowerCase().includes(term) || q.responsable.toLowerCase().includes(term)) {
+          matches++;
+          const isTbd = !q.responsable || q.responsable === '--' || q.responsable === 'TBD';
+          html += `
+            <div class="proj-row">
+              <span class="proj-name" style="color: ${getProjectColor(q)}">${q.nombre}</span>
+              <span class="proj-owner ${isTbd ? 'tbd' : ''}">${q.responsable}</span>
+            </div>
+          `;
+        }
+      });
+      return { html, matches };
+    }
+
+    function render() {
+      const col1 = document.getElementById('col-1');
+      const col2 = document.getElementById('col-2');
+      const col3 = document.getElementById('col-3');
+      if (!col1 || !col2 || !col3) return;
+      
+      col1.innerHTML = ''; col2.innerHTML = ''; col3.innerHTML = '';
+      const term = document.getElementById('search-input').value.toLowerCase().trim();
+
+      pmoData.programas.forEach((prog, index) => {
+        let cardHtml = `<div class="card header-minorista"><div class="card-head"><h2>${getProgEmoji(prog.nombre)} ${prog.nombre}</h2><span class="badge">${prog.total_proyectos}</span></div>`;
+        
+        if(prog.categorias) {
+          prog.categorias.forEach(c => {
+            const res = buildProjectRows(c.proyectos, term);
+            if (res.matches > 0 || term === '') cardHtml += `<div class="section-area"><div class="section-info"><span class="section-title">${c.tipo}</span></div><div class="proj-list">${res.html}</div></div>`;
+          });
+        }
+        
+        if(prog.subprogramas) {
+          prog.subprogramas.forEach(sp => {
+            const res = buildProjectRows(sp.proyectos, term);
+            if (res.matches > 0 || term === '') {
+              cardHtml += `<div class="section-area"><div class="subprogram-title">${sp.nombre}</div><div class="proj-list">${res.html}</div></div>`;
+            }
+          });
+        }
+
+        cardHtml += `</div>`;
+        if (index % 3 === 0) col1.appendChild(document.createRange().createContextualFragment(cardHtml));
+        else if (index % 3 === 1) col2.appendChild(document.createRange().createContextualFragment(cardHtml));
+        else col3.appendChild(document.createRange().createContextualFragment(cardHtml));
+      });
+    }
+
+    document.getElementById('search-input').addEventListener('input', render);
+    window.addEventListener('DOMContentLoaded', render);
+  </script>
 </body>
 </html>
