@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roadmap 2027 · PMO</title>
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --navy: #1B355D;
@@ -21,8 +21,8 @@
       /* Colores Solicitados */
       --timeline-bar: #B1CDEE;
       --timeline-bg: #F6F7F9;
-      --tag-bg: #EFF4FA;
-      --tag-text: #2B6CB0;
+      --classification-bg: #EFF4FA;
+      --classification-text: #2B6CB0;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,69 +33,87 @@
       background: linear-gradient(90deg, var(--navy) 0%, #1B4E5A 100%);
       color: var(--white);
       padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
       box-shadow: 0 2px 14px rgba(27,42,74,.28);
       margin-bottom: 28px;
     }
     .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
     .brand-top { font-size: 11px; text-transform: uppercase; font-weight: 700; color: #7DACE2; letter-spacing: .5px; }
-    .brand h1 { font-family: 'Merriweather', serif; font-size: 22px; font-weight: 900; display: flex; align-items: center; gap: 12px; }
+    
+    .title-area {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 4px;
+    }
+    .brand h1 { font-family: 'Merriweather', serif; font-size: 24px; font-weight: 900; color: var(--white); }
     
     .btn-back {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.12);
       color: var(--white);
       text-decoration: none;
-      padding: 6px 14px;
+      padding: 6px 16px;
       border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      transition: background 0.2s;
+      font-size: 13px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: background 0.2s, border-color 0.2s;
     }
-    .btn-back:hover { background: rgba(255, 255, 255, 0.25); }
+    .btn-back:hover { 
+      background: rgba(255, 255, 255, 0.2); 
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+    .btn-back img, .btn-back span.icon {
+      display: inline-block;
+      font-size: 14px;
+    }
 
     .search-area input { 
       background: rgba(255,255,255,0.15); 
       color: var(--white); 
       border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 20px; 
-      padding: 8px 16px; 
-      width: 320px; 
+      border-radius: 10px; 
+      padding: 8px 14px; 
+      width: 280px; 
       font-size: 13px; 
       outline: none; 
     }
-    .search-area input::placeholder { color: rgba(255,255,255,0.6); }
+    .search-area input::placeholder { color: rgba(255,255,255,0.7); }
     .search-area input:focus { background: var(--white); color: var(--text-dark); }
 
-    /* ENCABEZADO DE TABLA FIJO AL HACER SCROLL */
+    /* Estructura del Grid - Barra Principal Fija y Obscura */
+    .roadmap-container { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+
     .roadmap-header-row {
-      position: sticky;
-      top: 0;
-      z-index: 90;
       display: grid;
-      grid-template-columns: 180px 1fr 180px 400px;
-      gap: 16px;
+      grid-template-columns: 180px 1fr 200px 450px;
+      gap: 20px;
       padding: 14px 24px;
       font-size: 13px;
       font-weight: 700;
       color: var(--white);
-      background-color: var(--navy);
-      border-radius: 14px;
+      background-color: #1B355D; /* Azul obscuro fijo e idéntico al de tu diseño original */
+      border-radius: 10px;
       align-items: center;
-      margin-bottom: 16px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
 
     .timeline-quarters { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; }
 
-    .roadmap-container { display: flex; flex-direction: column; gap: 12px; }
-
+    /* Diseño Moderno de Tarjetas */
     .roadmap-card {
       background: var(--white);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       display: grid;
-      grid-template-columns: 180px 1fr 180px 400px;
-      gap: 16px;
-      padding: 16px 24px;
+      grid-template-columns: 180px 1fr 200px 450px;
+      gap: 20px;
+      padding: 18px 24px;
       align-items: center;
       transition: transform 0.15s, background 0.15s;
       border: 1px solid transparent;
@@ -106,15 +124,18 @@
       border-color: var(--border);
     }
 
+    /* Columna de Clasificaciones - Tono unificado exacto solicitado */
     .col-classification { 
       font-size: 12px; 
       font-weight: 600; 
-      padding: 4px 12px; 
-      border-radius: 6px; 
+      padding: 6px 14px; 
+      border-radius: 8px; 
       display: inline-block; 
       width: fit-content;
-      background-color: var(--tag-bg);
-      color: var(--tag-text);
+      background-color: var(--classification-bg); 
+      color: var(--classification-text);
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
       white-space: nowrap;
     }
 
@@ -122,48 +143,43 @@
     .col-responsible { font-size: 13px; font-weight: 500; color: #4A5568; }
     .col-responsible.tbd { color: #E85301; font-weight: 600; }
 
+    /* Estilización del Timeline más ancho y largo sin quedar justo */
     .col-timeline {
       background: var(--timeline-bg);
-      height: 44px;
-      border-radius: 8px;
+      height: 44px; /* Más ancho verticalmente */
+      border-radius: 10px;
       position: relative;
       overflow: hidden;
       display: flex;
       align-items: center;
-      padding: 0 12px;
+      padding: 0 10px; /* Margen interior largo a los extremos para que no quede justo */
     }
 
     .timeline-grid-lines {
       position: absolute;
-      top: 0; left: 12px; right: 12px; bottom: 0;
+      top: 0; left: 10px; right: 10px; bottom: 0;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       pointer-events: none;
     }
-    .timeline-grid-line { border-right: 1px dashed rgba(0, 0, 0, 0.04); }
+    .timeline-grid-line { border-right: 1px dashed rgba(0, 0, 0, 0.06); }
     .timeline-grid-line:last-child { border-right: none; }
-
-    .timeline-bar-wrapper {
-      position: relative;
-      width: 100%;
-      height: 14px;
-    }
 
     .timeline-bar {
       position: absolute;
-      height: 14px;
+      height: 18px; /* Proporcional al nuevo ancho */
       background: var(--timeline-bar);
       border-radius: 20px;
       transition: all 0.3s ease;
     }
 
     @media (max-width: 1200px) {
-      .roadmap-header-row, .roadmap-card { grid-template-columns: 150px 1fr 140px 320px; }
+      .roadmap-header-row, .roadmap-card { grid-template-columns: 150px 1fr 160px 360px; }
     }
     @media (max-width: 768px) {
       .roadmap-header-row { display: none; }
-      .roadmap-card { grid-template-columns: 1fr; gap: 10px; padding: 16px; }
-      .col-timeline { margin-top: 4px; }
+      .roadmap-card { grid-template-columns: 1fr; gap: 12px; padding: 16px; }
+      .col-timeline { margin-top: 8px; }
     }
   </style>
 </head>
@@ -173,10 +189,12 @@
     <div class="wrap header-inner">
       <div class="brand">
         <span class="brand-top">Portafolio de Proyectos 2027 · PMO</span>
-        <h1>
-          <a href="index.html" class="btn-back">⬅ Regresar al Tablero</a>
-          Roadmap 2027
-        </h1>
+        <div class="title-area">
+          <h1>Roadmap 2027</h1>
+          <a href="index.html" class="btn-back">
+            <span class="icon">🔙</span> Regresar al Tablero
+          </a>
+        </div>
       </div>
       <div class="search-area">
         <input type="text" id="search-input" placeholder="Buscar proyecto, responsable o clasificación...">
@@ -185,7 +203,6 @@
   </header>
 
   <main class="wrap">
-    <!-- Solo esta barra azul oscura baja fija con el scroll -->
     <div class="roadmap-header-row">
       <div>Clasificación</div>
       <div>Proyecto</div>
@@ -204,7 +221,7 @@
   <script>
     const excelData = [
       { clasificacion: "Banca Minorista", proyecto: "Aplicación de inversiones MVP 2", responsable: "S. Olivero", inicio: "2027-01-01", fin: "2027-12-31" },
-      { clasificacion: "Banca Minorista", proyecto: "Rediseño Proceso de Originación MVP 2", responsable: "S. Olivero", inicio: "2027-04-01", fin: "2027-11-15" }, 
+      { clasificacion: "Banca Minorista", proyecto: "Rediseño Proceso de Originación MVP 2 ", responsable: "S. Olivero", inicio: "2027-04-01", fin: "2027-11-15" }, 
       { clasificacion: "Banca Minorista", proyecto: "Copiloto MVP 2", responsable: "S. Olivero", inicio: "2027-03-01", fin: "2027-09-30" },
       { clasificacion: "Banca Minorista", proyecto: "Seguros RANMA", responsable: "S. Olivero", inicio: "2027-05-01", fin: "2027-11-30" },
       { clasificacion: "Banca Minorista", proyecto: "Créditos Asociados a Nómina (CAN)", responsable: "S. Olivero", inicio: "2027-01-01", fin: "2027-12-31" },
@@ -219,7 +236,7 @@
       { clasificacion: "Banca Mayorista", proyecto: "Otros", responsable: "--", inicio: "2027-01-01", fin: "2027-12-31" },
       { clasificacion: "Banca Mayorista", proyecto: "Banco recaudador", responsable: "R. Vázquez", inicio: "2027-01-01", fin: "2027-12-31" },
       { clasificacion: "Banca Minorista", proyecto: "Aplicación de inversiones MVP 1", responsable: "S. Olivero", inicio: "2027-01-01", fin: "2027-06-30" },
-      { clasificacion: "Banca Minorista", proyecto: "Rediseño Proceso de Originación MVP 1", responsable: "S. Olivero", inicio: "2027-01-01", fin: "2027-06-30" },
+      { clasificacion: "Banca Minorista", proyecto: "Rediseño Proceso de Originación MVP 1 ", responsable: "S. Olivero", inicio: "2027-01-01", fin: "2027-06-30" },
       { clasificacion: "Banca Minorista", proyecto: "Copiloto MVP 1", responsable: "S. Olivero", inicio: "2027-01-01", fin: "2027-06-30" },
       { clasificacion: "Nuevos proyectos", proyecto: "CRM Objetivo", responsable: "M. Matus", inicio: "2027-01-01", fin: "2027-12-31" },
       { clasificacion: "Nuevos proyectos", proyecto: "Content Manager Objetivo (Filenet)", responsable: "M. Matus", inicio: "2027-01-01", fin: "2027-01-31" },
@@ -235,3 +252,55 @@
       const currentStart = new Date(startStr).getTime();
       const currentEnd = new Date(endStr).getTime();
 
+      const startClamped = Math.max(yearStart, Math.min(yearEnd, currentStart));
+      const endClamped = Math.max(yearStart, Math.min(yearEnd, currentEnd));
+
+      const leftPercent = ((startClamped - yearStart) / totalDuration) * 100;
+      const widthPercent = ((endClamped - startClamped) / totalDuration) * 100;
+
+      return {
+        left: leftPercent.toFixed(2) + "%",
+        width: Math.max(widthPercent, 4).toFixed(2) + "%"
+      };
+    }
+
+    function renderRoadmap() {
+      const container = document.getElementById("roadmap-container");
+      const searchTerm = document.getElementById("search-input").value.toLowerCase().trim();
+      container.innerHTML = "";
+
+      excelData.forEach(item => {
+        const matchesCls = item.clasificacion.toLowerCase().includes(searchTerm);
+        const matchesProj = item.proyecto.toLowerCase().includes(searchTerm);
+        const matchesResp = item.responsable.toLowerCase().includes(searchTerm);
+
+        if (matchesCls || matchesProj || matchesResp || searchTerm === "") {
+          const isTbd = !item.responsable || item.responsable === "--" || item.responsable === "TBD";
+          const pos = calculateTimelinePosition(item.inicio, item.fin);
+
+          const cardHtml = `
+            <div class="roadmap-card">
+              <div><span class="col-classification">${item.clasificacion}</span></div>
+              <div class="col-project">${item.proyecto}</div>
+              <div class="col-responsible ${isTbd ? 'tbd' : ''}">${item.responsable}</div>
+              <div class="col-timeline">
+                <div class="timeline-grid-lines">
+                  <div class="timeline-grid-line"></div>
+                  <div class="timeline-grid-line"></div>
+                  <div class="timeline-grid-line"></div>
+                  <div class="timeline-grid-line"></div>
+                </div>
+                <div class="timeline-bar" style="left: calc(${pos.left} * 0.95); width: ${pos.width};"></div>
+              </div>
+            </div>
+          `;
+          container.insertAdjacentHTML("beforeend", cardHtml);
+        }
+      });
+    }
+
+    document.getElementById("search-input").addEventListener("input", renderRoadmap);
+    window.addEventListener("DOMContentLoaded", renderRoadmap);
+  </script>
+</body>
+</html>
