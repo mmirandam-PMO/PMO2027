@@ -71,15 +71,15 @@ const pmoData = {
         {
           tipo: "Transversales · 4",
           proyectos: [
-            { nombre: "Banca Electrónica y Móvil", responsable: "--", destacado: "red" }, 
-            { nombre: "Hub de pagos", responsable: "--", destacado: "red" }
+            { nombre: "Banca Electrónica y Móvil", responsable: "--" }, // Cambiado al color estándar
+            { nombre: "Hub de pagos", responsable: "--" }              // Cambiado al color estándar
           ]
         },
         {
           tipo: "Líneas de Negocio",
           proyectos: [
             { nombre: "Dispersión de Nóminas", responsable: "--" }, 
-            { nombre: "Banco Recaudador", responsable: "R. Vázquez", destacado: "red" }
+            { nombre: "Banco Recaudador", responsable: "R. Vázquez" }   // Cambiado al color estándar
           ]
         }
       ]
@@ -124,7 +124,7 @@ const pmoData = {
           tipo: "Modernización Tecnológica · 6",
           proyectos: [
             { nombre: "CRM Objetivo", responsable: "M. Matus" },
-            { fontname: "sans-serif", nombre: "Content Manager Objetivo (Filenet)", responsable: "M. Matus" },
+            { nombre: "Content Manager Objetivo (Filenet)", responsable: "M. Matus" },
             { nombre: "Upgrade S4 HANNA (E R P)", responsable: "C. Budar" },
             { nombre: "Herramientas IA", responsable: "M. Matus" },
             { nombre: "Implementación Middleware (Greenfield)", responsable: "M. Matus" },
