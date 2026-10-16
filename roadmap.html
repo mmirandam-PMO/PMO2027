@@ -21,8 +21,6 @@
       /* Colores Solicitados */
       --timeline-bar: #B1CDEE;
       --timeline-bg: #F6F7F9;
-      --classification-bg: #EFF4FA;
-      --classification-text: #2B6CB0;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,37 +39,19 @@
     }
     .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
     .brand-top { font-size: 11px; text-transform: uppercase; font-weight: 700; color: #7DACE2; letter-spacing: .5px; }
-    
-    .title-area {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-top: 4px;
-    }
-    .brand h1 { font-family: 'Merriweather', serif; font-size: 24px; font-weight: 900; color: var(--white); }
+    .brand h1 { font-family: 'Merriweather', serif; font-size: 22px; font-weight: 900; display: flex; align-items: center; gap: 12px; }
     
     .btn-back {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.15);
       color: var(--white);
       text-decoration: none;
-      padding: 6px 16px;
+      padding: 6px 14px;
       border-radius: 20px;
-      font-size: 13px;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      transition: background 0.2s, border-color 0.2s;
+      font-size: 12px;
+      font-weight: 600;
+      transition: background 0.2s;
     }
-    .btn-back:hover { 
-      background: rgba(255, 255, 255, 0.2); 
-      border-color: rgba(255, 255, 255, 0.4);
-    }
-    .btn-back img, .btn-back span.icon {
-      display: inline-block;
-      font-size: 14px;
-    }
+    .btn-back:hover { background: rgba(255, 255, 255, 0.25); }
 
     .search-area input { 
       background: rgba(255,255,255,0.15); 
@@ -86,21 +66,20 @@
     .search-area input::placeholder { color: rgba(255,255,255,0.7); }
     .search-area input:focus { background: var(--white); color: var(--text-dark); }
 
-    /* Estructura del Grid - Barra Principal Fija y Obscura */
+    /* Estructura del Grid sin Tablas Tradicionales */
     .roadmap-container { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
 
     .roadmap-header-row {
       display: grid;
-      grid-template-columns: 180px 1fr 200px 450px;
-      gap: 20px;
-      padding: 14px 24px;
+      grid-template-columns: 180px 1fr 180px 400px;
+      gap: 16px;
+      padding: 0 20px;
       font-size: 13px;
       font-weight: 700;
-      color: var(--white);
-      background-color: #1B355D; /* Azul obscuro fijo e idéntico al de tu diseño original */
-      border-radius: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
       align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
 
     .timeline-quarters { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; }
@@ -111,9 +90,9 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       display: grid;
-      grid-template-columns: 180px 1fr 200px 450px;
-      gap: 20px;
-      padding: 18px 24px;
+      grid-template-columns: 180px 1fr 180px 400px;
+      gap: 16px;
+      padding: 16px 20px;
       align-items: center;
       transition: transform 0.15s, background 0.15s;
       border: 1px solid transparent;
@@ -124,61 +103,53 @@
       border-color: var(--border);
     }
 
-    /* Columna de Clasificaciones - Tono unificado exacto solicitado */
-    .col-classification { 
-      font-size: 12px; 
-      font-weight: 600; 
-      padding: 6px 14px; 
-      border-radius: 8px; 
-      display: inline-block; 
-      width: fit-content;
-      background-color: var(--classification-bg); 
-      color: var(--classification-text);
-      text-align: center;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-      white-space: nowrap;
-    }
+    /* Columna de Clasificaciones */
+    .col-classification { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 6px; display: inline-block; width: fit-content; }
+    .class-minorista { background: rgba(74, 144, 226, 0.1); color: #2980B9; }
+    .class-mayorista { background: rgba(211, 84, 0, 0.1); color: #D35400; }
+    .class-nuevos { background: rgba(155, 89, 182, 0.1); color: #8E44AD; }
+    .class-carryover { background: rgba(52, 73, 94, 0.1); color: #34495E; }
+    .class-default { background: rgba(127, 140, 141, 0.1); color: #7F8C8D; }
 
     .col-project { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.4; }
     .col-responsible { font-size: 13px; font-weight: 500; color: #4A5568; }
     .col-responsible.tbd { color: #E85301; font-weight: 600; }
 
-    /* Estilización del Timeline más ancho y largo sin quedar justo */
+    /* Estilización del Timeline solicitado */
     .col-timeline {
       background: var(--timeline-bg);
-      height: 44px; /* Más ancho verticalmente */
-      border-radius: 10px;
+      height: 36px;
+      border-radius: 8px;
       position: relative;
       overflow: hidden;
       display: flex;
       align-items: center;
-      padding: 0 10px; /* Margen interior largo a los extremos para que no quede justo */
     }
 
     .timeline-grid-lines {
       position: absolute;
-      top: 0; left: 10px; right: 10px; bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       pointer-events: none;
     }
-    .timeline-grid-line { border-right: 1px dashed rgba(0, 0, 0, 0.06); }
+    .timeline-grid-line { border-right: 1px dashed rgba(0, 0, 0, 0.05); }
     .timeline-grid-line:last-child { border-right: none; }
 
     .timeline-bar {
       position: absolute;
-      height: 18px; /* Proporcional al nuevo ancho */
+      height: 14px;
       background: var(--timeline-bar);
       border-radius: 20px;
       transition: all 0.3s ease;
     }
 
-    @media (max-width: 1200px) {
-      .roadmap-header-row, .roadmap-card { grid-template-columns: 150px 1fr 160px 360px; }
+    @media (max-width: 1100px) {
+      .roadmap-header-row, .roadmap-card { grid-template-columns: 140px 1fr 140px 280px; }
     }
     @media (max-width: 768px) {
       .roadmap-header-row { display: none; }
-      .roadmap-card { grid-template-columns: 1fr; gap: 12px; padding: 16px; }
+      .roadmap-card { grid-template-columns: 1fr; gap: 10px; padding: 16px; }
       .col-timeline { margin-top: 8px; }
     }
   </style>
@@ -189,12 +160,10 @@
     <div class="wrap header-inner">
       <div class="brand">
         <span class="brand-top">Portafolio de Proyectos 2027 · PMO</span>
-        <div class="title-area">
-          <h1>Roadmap 2027</h1>
-          <a href="index.html" class="btn-back">
-            <span class="icon">🔙</span> Regresar al Tablero
-          </a>
-        </div>
+        <h1>
+          <a href="#" class="btn-back">⬅ Regresar al Tablero</a>
+          Roadmap 2027
+        </h1>
       </div>
       <div class="search-area">
         <input type="text" id="search-input" placeholder="Buscar proyecto, responsable o clasificación...">
@@ -244,6 +213,15 @@
       { clasificacion: "Carryover 2026", proyecto: "Robustecimiento BKAYA 2026", responsable: "M. Matus", inicio: "2027-01-01", fin: "2027-01-31" }
     ];
 
+    function getClassificationClass(cls) {
+      const clean = cls.toLowerCase();
+      if (clean.includes("minorista")) return "class-minorista";
+      if (clean.includes("mayorista")) return "class-mayorista";
+      if (clean.includes("nuevos")) return "class-nuevos";
+      if (clean.includes("carryover")) return "class-carryover";
+      return "class-default";
+    }
+
     function calculateTimelinePosition(startStr, endStr) {
       const yearStart = new Date("2027-01-01").getTime();
       const yearEnd = new Date("2027-12-31").getTime();
@@ -260,7 +238,7 @@
 
       return {
         left: leftPercent.toFixed(2) + "%",
-        width: Math.max(widthPercent, 4).toFixed(2) + "%"
+        width: Math.max(widthPercent, 3).toFixed(2) + "%"
       };
     }
 
@@ -276,11 +254,12 @@
 
         if (matchesCls || matchesProj || matchesResp || searchTerm === "") {
           const isTbd = !item.responsable || item.responsable === "--" || item.responsable === "TBD";
+          const classStyle = getClassificationClass(item.clasificacion);
           const pos = calculateTimelinePosition(item.inicio, item.fin);
 
           const cardHtml = `
             <div class="roadmap-card">
-              <div><span class="col-classification">${item.clasificacion}</span></div>
+              <div><span class="col-classification ${classStyle}">${item.clasificacion}</span></div>
               <div class="col-project">${item.proyecto}</div>
               <div class="col-responsible ${isTbd ? 'tbd' : ''}">${item.responsable}</div>
               <div class="col-timeline">
@@ -290,7 +269,7 @@
                   <div class="timeline-grid-line"></div>
                   <div class="timeline-grid-line"></div>
                 </div>
-                <div class="timeline-bar" style="left: calc(${pos.left} * 0.95); width: ${pos.width};"></div>
+                <div class="timeline-bar" style="left: ${pos.left}; width: ${pos.width};"></div>
               </div>
             </div>
           `;
