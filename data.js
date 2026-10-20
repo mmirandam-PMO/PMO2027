@@ -109,7 +109,7 @@ const pmoData = {
           ]
         },
         {
-          tipo: "Operaciones · 3",
+          tipo: "Operaciones · 4",
           proyectos: [
             { nombre: "Automatización proceso trxs POS", responsable: "A. Nava" },
             { nombre: "Implementación de TEF", responsable: "A. Nava" },
