@@ -45,9 +45,16 @@ function buildProjectRows(proyectos, term) {
     if (nameMatch || ownerMatch) {
       matches++;
       const isTbd = !q.responsable || q.responsable === 'TBD' || q.responsable === '--';
+      
+      // Vínculo idéntico a un Roadmap: misma pestaña y sin subrayados
+      let nameContent = q.nombre;
+      if (q.nombre === "Nuevo Core Bancario & Bca Empresarial") {
+        nameContent = `<a href="descriptiva-nuevo-core-bancario-bca-empresarial.html" style="color: ${getProjectColor(q)}; cursor: pointer; text-decoration: none; font-weight: 500;">${q.nombre}</a>`;
+      }
+
       html += `
         <div class="proj-row">
-          <span class="proj-name" style="color: ${getProjectColor(q)}">${q.nombre}</span>
+          <span class="proj-name" style="color: ${getProjectColor(q)}">${nameContent}</span>
           <span class="proj-owner ${isTbd ? 'tbd' : ''}">${q.responsable}</span>
         </div>
       `;
@@ -68,7 +75,7 @@ function render() {
   const term = document.getElementById('search-input').value.toLowerCase().trim();
   const findProg = name => pmoData.programas.find(p => p.nombre === name);
 
-  // 1. Banca Minorista -> Abre en la misma pestaña
+  // 1. Banca Minorista
   const minor = findProg('Banca Minorista');
   if (minor) {
     let cardHtml = `
@@ -94,7 +101,18 @@ function render() {
   // 2. Regulatorios
   const reg = findProg('Regulatorios');
   if (reg) {
-    let cardHtml = `<div class="card header-regulatorios"><div class="card-head"><h2>${getProgEmoji(reg.nombre)} ${reg.nombre}</h2><div style="display:flex; align-items:center; gap:8px;"><a href="roadmap-regulatorios.html" title="Ver Roadmap" style="display:inline-flex; align-items:center; cursor: pointer; text-decoration: none;">${roadmapBadgeHtml}</a> <span class="badge">${reg.total_proyectos}</span></div></div>`;
+    let cardHtml = `
+      <div class="card header-regulatorios">
+        <div class="card-head">
+          <h2>${getProgEmoji(reg.nombre)} ${reg.nombre}</h2>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <a href="roadmap-regulatorios.html" title="Ver Roadmap" style="display:inline-flex; align-items:center; cursor: pointer; text-decoration: none;">
+              ${roadmapBadgeHtml}
+            </a> 
+            <span class="badge">${reg.total_proyectos}</span>
+          </div>
+        </div>
+    `;
     reg.categorias.forEach(c => {
       const res = buildProjectRows(c.proyectos, term);
       if (res.matches > 0 || term === '') cardHtml += `<div class="section-area"><div class="section-info"><span class="section-title">${c.tipo}</span></div><div class="proj-list">${res.html}</div></div>`;
@@ -106,7 +124,19 @@ function render() {
   // 3. Banca Mayorista
   const may = findProg('Banca Mayorista');
   if (may) {
-    let cardHtml = `<div class="card header-mayorista"><div class="card-head"><h2>${getProgEmoji(may.nombre)} ${may.nombre}</h2><div style="display:flex; align-items:center; gap:8px;"><a href="roadmap-mayorista.html" title="Ver Roadmap" style="display:inline-flex; align-items:center; cursor: pointer; text-decoration: none;">${roadmapBadgeHtml}</a> <span class="badge">8</span></div></div><div class="section-area">`;
+    let cardHtml = `
+      <div class="card header-mayorista">
+        <div class="card-head">
+          <h2>${getProgEmoji(may.nombre)} ${may.nombre}</h2>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <a href="roadmap-mayorista.html" title="Ver Roadmap" style="display:inline-flex; align-items:center; cursor: pointer; text-decoration: none;">
+              ${roadmapBadgeHtml}
+            </a> 
+            <span class="badge">9</span>
+          </div>
+        </div>
+        <div class="section-area">
+    `;
     
     cardHtml += `<div class="subprogram-block-grid">`;
     may.subprogramas.forEach(sp => {
@@ -130,7 +160,18 @@ function render() {
   // 4. Hub de Innovación
   const hub = findProg('Hub de Innovación');
   if (hub) {
-    let cardHtml = `<div class="card header-hub"><div class="card-head"><h2>${getProgEmoji(hub.nombre)} ${hub.nombre}</h2><div style="display:flex; align-items:center; gap:8px;"><a href="roadmap-hub.html" title="Ver Roadmap" style="display:inline-flex; align-items:center; cursor: pointer; text-decoration: none;">${roadmapBadgeHtml}</a> <span class="badge">${hub.total_proyectos}</span></div></div>`;
+    let cardHtml = `
+      <div class="card header-hub">
+        <div class="card-head">
+          <h2>${getProgEmoji(hub.nombre)} ${hub.nombre}</h2>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <a href="roadmap-hub.html" title="Ver Roadmap" style="display:inline-flex; align-items:center; cursor: pointer; text-decoration: none;">
+              ${roadmapBadgeHtml}
+            </a> 
+            <span class="badge">${hub.total_proyectos}</span>
+          </div>
+        </div>
+    `;
     hub.categorias.forEach(c => {
       const res = buildProjectRows(c.proyectos, term);
       if (res.matches > 0 || term === '') cardHtml += `<div class="section-area"><div class="section-info"><span class="section-title">${c.tipo}</span></div><div class="proj-list">${res.html}</div></div>`;
@@ -142,7 +183,18 @@ function render() {
   // 5. Habilitadores
   const co = findProg('Habilitadores');
   if (co) {
-    let cardHtml = `<div class="card header-carryover"><div class="card-head"><h2>${getProgEmoji(co.nombre)} ${co.nombre}</h2><div style="display:flex; align-items:center; gap:8px;"><a href="roadmap-habilitadores.html" title="Ver Roadmap" style="display:inline-flex; align-items:center; cursor: pointer; text-decoration: none;">${roadmapBadgeHtml}</a> <span class="badge">${co.total_proyectos}</span></div></div>`;
+    let cardHtml = `
+      <div class="card header-carryover">
+        <div class="card-head">
+          <h2>${getProgEmoji(co.nombre)} ${co.nombre}</h2>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <a href="roadmap-habilitadores.html" title="Ver Roadmap" style="display:inline-flex; align-items:center; cursor: pointer; text-decoration: none;">
+              ${roadmapBadgeHtml}
+            </a> 
+            <span class="badge">${co.total_proyectos}</span>
+          </div>
+        </div>
+    `;
     co.categorias.forEach(c => {
       const res = buildProjectRows(c.proyectos, term);
       if (res.matches > 0 || term === '') cardHtml += `<div class="section-area"><div class="section-info"><span class="section-title">${c.tipo}</span></div><div class="proj-list">${res.html}</div></div>`;

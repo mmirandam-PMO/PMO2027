@@ -6,7 +6,7 @@
   <title>Roadmap Regulatorios</title>
   <link rel="preconnect" href="https://googleapis.com">
   <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com" rel="stylesheet">
+  <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
   
   <style>
     :root {
@@ -150,6 +150,18 @@
     .bar-program { background: var(--navy); height: 16px; }
     .bar-category { background: var(--blue-brand); height: 14px; }
     .bar-project { background: var(--blue-light); }
+
+    /* Indicador de Línea de Hoy */
+    .today-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 15px;
+      width: 2px;
+      background: #E85301;
+      border-dashed: 1px #E85301;
+      z-index: 20;
+    }
   </style>
 </head>
 <body>
@@ -193,40 +205,41 @@
           <div class="gantt-cell"></div>
           <div class="gantt-timeline-cell" style="grid-column: 3 / span 12;">
             <div class="bar bar-program"></div>
+            <div class="today-line"></div>
           </div>
         </div>
 
         <!-- ================= SUBCLASIFICACIÓN 1: CARRYOVER ================= -->
         <div class="gantt-row row-category">
-          <div class="gantt-cell">Carryover 2026 · 4</div>
+          <div class="gantt-cell">Carry-over 2026 · 4</div>
           <div class="gantt-cell leader-header">Líder de Proyecto</div>
           <div class="gantt-timeline-cell" style="grid-column: 3 / span 12;">
-            <div class="bar bar-category"></div>
+            <div class="bar bar-category" style="width: 50%;"></div>
           </div>
         </div>
 
         <div class="gantt-row row-project">
           <div class="gantt-cell"><span class="proj-title">PCI DSS</span></div>
           <div class="gantt-cell"><span class="proj-owner">C. Carreón</span></div>
-          <div class="gantt-timeline-cell" style="grid-column: 3 / span 12;"><div class="bar bar-project"></div></div>
+          <div class="gantt-timeline-cell" style="grid-column: 3 / span 12;"><div class="bar bar-project" style="width: 50%;"></div></div>
         </div>
 
         <div class="gantt-row row-project">
           <div class="gantt-cell"><span class="proj-title">Segundo factor de autenticación (Trxs no presenciales)</span></div>
           <div class="gantt-cell"><span class="proj-owner">C. Carreón</span></div>
-          <div class="gantt-timeline-cell" style="grid-column: 3 / span 12;"><div class="bar bar-project"></div></div>
+          <div class="gantt-timeline-cell" style="grid-column: 3 / span 12;"><div class="bar bar-project" style="width: 16.66%;"></div></div>
         </div>
 
         <div class="gantt-row row-project">
           <div class="gantt-cell"><span class="proj-title">Formulario FATCA / CRS</span></div>
           <div class="gantt-cell"><span class="proj-owner">C. Budar</span></div>
-          <div class="gantt-timeline-cell" style="grid-column: 3 / span 12;"><div class="bar bar-project"></div></div>
+          <div class="gantt-timeline-cell" style="grid-column: 3 / span 12;"><div class="bar bar-project" style="width: 0%;"></div></div>
         </div>
 
         <div class="gantt-row row-project">
           <div class="gantt-cell"><span class="proj-title">Identificador Cliente Derechos ARCO</span></div>
           <div class="gantt-cell"><span class="proj-owner">C. Carreón</span></div>
-          <div class="gantt-timeline-cell" style="grid-column: 3 / span 12;"><div class="bar bar-project"></div></div>
+          <div class="gantt-timeline-cell" style="grid-column: 3 / span 12;"><div class="bar bar-project" style="width: 0%;"></div></div>
         </div>
 
         <!-- ================= SUBCLASIFICACIÓN 2: NUEVOS PROYECTOS ================= -->
@@ -238,22 +251,26 @@
           </div>
         </div>
 
-        <div class="gantt-row row-project">
-          <div class="gantt-cell"><span class="proj-title">Nueva Plataforma PLD</span></div>
-          <div class="gantt-cell"><span class="proj-owner">C. Carreón</span></div>
-          <div class="gantt-timeline-cell" style="grid-column: 3 / span 12;"><div class="bar bar-project"></div></div>
-        </div>
+       <div class="gantt-row row-project">
+  <div class="gantt-cell"><span class="proj-title">Nueva Plataforma PLD</span></div>
+  <div class="gantt-cell"><span class="proj-owner">C. Carreón</span></div>
+  <div class="gantt-timeline-cell" style="grid-column: 3 / span 12;">
+    <!-- width: 75% (9 de 12 meses) y margin-left: 16.66% (se salta Ene y Feb) -->
+    <div class="bar bar-project" style="width: 75%; margin-left: 16.66%;"></div>
+  </div>
+</div>
 
         <div class="gantt-row row-project">
           <div class="gantt-cell"><span class="proj-title">Plataforma Reportes Regulatorios</span></div>
           <div class="gantt-cell"><span class="proj-owner">C. Budar</span></div>
-          <div class="gantt-timeline-cell" style="grid-column: 3 / span 12;"><div class="bar bar-project"></div></div>
+           <div class="gantt-timeline-cell" style="grid-column: 3 / span 12;"><div class="bar bar-project" style="width: 0%;"></div></div>
         </div>
 
         <div class="gantt-row row-project">
-          <div class="gantt-cell"><span class="proj-title">Herramientas Ciberseguridad</span></div>
+          <div class="gantt-cell"><span class="proj-title">Herramientas de Ciberseguridad</span></div>
           <div class="gantt-cell"><span class="proj-owner">C. Carreón</span></div>
           <div class="gantt-timeline-cell" style="grid-column: 3 / span 12;"><div class="bar bar-project"></div></div>
+
         </div>
 
       </div>

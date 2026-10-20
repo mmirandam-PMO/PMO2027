@@ -2,10 +2,10 @@ const pmoData = {
   programas: [
     {
       nombre: "Banca Minorista",
-      total_proyectos: 8,
+      total_proyectos: 7,
       categorias: [
         {
-          tipo: "Nuevos proyectos · 8",
+          tipo: "Nuevos proyectos · 7",
           proyectos: [
             { nombre: "App de Inversiones MVP 2", responsable: "S. Olivero" },
             { nombre: "Rediseño Proceso de Originación MVP 2", responsable: "S. Olivero" },
@@ -13,7 +13,7 @@ const pmoData = {
             { nombre: "Seguros RANMA", responsable: "S. Olivero" },
             { nombre: "Créditos Asociados a Nómina (CAN)", responsable: "S. Olivero" },
             { nombre: "Cash Loans", responsable: "S. Olivero" },
-            { nombre: "Personalización de Ofertas", responsable: "S. Olivero" },
+           // { nombre: "Personalización de Ofertas", responsable: "S. Olivero" },
             { nombre: "Cuenta Rocket", responsable: "S. Olivero" }
           ]
         }
@@ -24,7 +24,7 @@ const pmoData = {
       total_proyectos: 7,
       categorias: [
         {
-          tipo: "Carryover 2026 · 4",
+          tipo: "Carry-over 2026 · 4",
           proyectos: [
             { nombre: "PCI DSS", responsable: "C. Carreón" },
             { nombre: "Segundo factor de autenticación (Trxs no presenciales)", responsable: "C. Carreón" },
@@ -37,14 +37,14 @@ const pmoData = {
           proyectos: [
             { nombre: "Nueva Plataforma PLD", responsable: "C. Carreón" },
             { nombre: "Plataforma Reportes Regulatorios", responsable: "C. Budar", destacado: "blue" },
-            { nombre: "Herramientas Ciberseguridad", responsable: "C. Carreón" }
+            { nombre: "Herramientas de Ciberseguridad", responsable: "C. Carreón" }
           ]
         }
       ]
     },
     {
       nombre: "Banca Mayorista",
-      total_proyectos: 8,
+      total_proyectos: 9,
       subprogramas: [
         { 
           nombre: "Banca de Empresas · Programa", 
@@ -69,60 +69,61 @@ const pmoData = {
       ],
       transversales: [
         {
-          tipo: "Transversales · 4",
+          tipo: "Transversales · 3",
           proyectos: [
             { nombre: "Banca Electrónica y Móvil", responsable: "--" },
-            { nombre: "Hub de pagos", responsable: "--" },
+           // { nombre: "Hub de pagos", responsable: "--" },
             { nombre: "Dispersión de Nóminas", responsable: "--" },
             { nombre: "Banco Recaudador", responsable: "R. Vázquez" }
           ]
         }
       ]
     },
+   {
+  nombre: "Hub de Innovación",
+  total_proyectos: 5,
+  categorias: [
     {
-      nombre: "Hub de Innovación",
-      total_proyectos: 5,
-      categorias: [
-        {
-          tipo: "Por autorizar · 5",
-          proyectos: [
-            { nombre: "Comunidad Lazos", responsable: "R. Flores" },
-            { nombre: "MVNO", responsable: "--" },
-            { nombre: "Productos de crédito (3) ...", responsable: "--" },
-            { nombre: "Producto de crédito", responsable: "--" }
-          ]
-        }
+      tipo: "Por autorizar · 5",
+      proyectos: [
+        { nombre: "Comunidad Lazos", responsable: "R. Flores" },
+        { nombre: "MVNO", responsable: "--" },
+        { nombre: "Producto de crédito 1", responsable: "--" },
+        { nombre: "Producto de crédito 2", responsable: "--" }, // <-- Recuerda poner esta coma
+        { nombre: "Producto de crédito 3", responsable: "--" }
       ]
-    },
+    }
+  ]
+},
     {
       nombre: "Habilitadores",
       total_proyectos: 13,
       categorias: [
         {
-          tipo: "Enfoque al Cliente · 3",
+          tipo: "Enfoque al Cliente · 4",
           proyectos: [
             { nombre: "Programa Lazos", responsable: "A. Nava" },
-            { nombre: "Reingeniería IVR", responsable: "A. Nava" },
+            { nombre: "Vista Integral 360 (20%)", responsable: "A. Nava" },
+            { nombre: "Activación de crédito en Salesforce", responsable: "A. Nava" },
             { nombre: "Automatización de procesos ATC (3 SOWs)", responsable: "A. Nava" }
           ]
         },
         {
-          tipo: "Operaciones · 4",
+          tipo: "Operaciones · 3",
           proyectos: [
             { nombre: "Automatización proceso trxs POS", responsable: "A. Nava" },
             { nombre: "Implementación de TEF", responsable: "A. Nava" },
             { nombre: "Tokenización", responsable: "A. Nava" },
-            { nombre: "Migración Campo c53 al c57", responsable: "A. Nava" }
-          ]
+            ]
         },
         {
           tipo: "Modernización Tecnológica · 6",
           proyectos: [
             { nombre: "CRM Objetivo", responsable: "M. Matus" },
             { fontname: "sans-serif", nombre: "Content Manager Objetivo (Filenet)", responsable: "M. Matus" },
-            { nombre: "Upgrade S4 HANNA (E R P)", responsable: "C. Budar" },
-            { nombre: "Herramientas IA", responsable: "M. Matus" },
-            { nombre: "Implementación Middleware (Greenfield)", responsable: "M. Matus" },
+            { nombre: "Upgrade S4 HANNA (ERP)", responsable: "C. Budar" },
+            { nombre: "Robustecimiento Bkaya", responsable: "M. Matus" },
+            { nombre: "Middleware", responsable: "M. Matus" },
             { nombre: "Nuevo Core Bancario & Bca Empresarial", responsable: "M. Matus" }
           ]
         }
