@@ -5,15 +5,14 @@ const pmoData = {
       total_proyectos: 7,
       categorias: [
         {
-          tipo: "Nuevos proyectos · 7",
+          tipo: "Banca de Consumo · 4",
           proyectos: [
-            { nombre: "App de Inversiones MVP 2", responsable: "S. Olivero" },
             { nombre: "Rediseño Proceso de Originación MVP 2", responsable: "S. Olivero" },
-            { nombre: "Copiloto MVP 2", responsable: "S. Olivero" },
             { nombre: "Seguros RANMA", responsable: "S. Olivero" },
             { nombre: "Créditos Asociados a Nómina (CAN)", responsable: "S. Olivero" },
             { nombre: "Cash Loans", responsable: "S. Olivero" },
-           // { nombre: "Personalización de Ofertas", responsable: "S. Olivero" },
+           ]
+            { nombre: "App de inversiones MVP 2", responsable: "S. Olivero" },
             { nombre: "Cuenta Rocket", responsable: "S. Olivero" }
           ]
         }
