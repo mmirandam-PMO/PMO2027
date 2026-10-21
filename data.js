@@ -11,10 +11,7 @@ const pmoData = {
             { nombre: "Seguros RANMA", responsable: "S. Olivero" },
             { nombre: "Créditos Asociados a Nómina (CAN)", responsable: "S. Olivero" },
             { nombre: "Cash Loans", responsable: "S. Olivero" },
-           ]
-            { nombre: "App de inversiones MVP 2", responsable: "S. Olivero" },
-            { nombre: "Cuenta Rocket", responsable: "S. Olivero" }
-          ]
+        ]
         }
       ]
     },
